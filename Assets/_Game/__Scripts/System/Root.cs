@@ -13,6 +13,8 @@ public class Root : MonoBehaviour
     private void Awake()
     {
         _this = this;
+        _components = new List<Component>();
+        DontDestroyOnLoad(gameObject);
     }
 
     public static T GetReference<T>(bool createNewComponentIfNull = false) where T : MonoBehaviour
@@ -20,11 +22,9 @@ public class Root : MonoBehaviour
         var component = _this._components
             .Find(c => c.MonoBehComponent is T && c.MonoBehComponent != null)
             ?.MonoBehComponent as T;
-        if (component == null && createNewComponentIfNull)
+        if (!component && createNewComponentIfNull)
         {
-            Debug.LogWarning("Creating component: " + typeof(T).Name);
-            var newMono = _this.gameObject.AddComponent<T>();
-            return RegisterComponent(newMono) as T;
+            return null;
         }
 
         return component;

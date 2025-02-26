@@ -1,0 +1,21 @@
+[submodule "Assets/Packages/AtmosphericHouse"]
+	path = Assets/Packages/AtmosphericHouse
+	url = git@gitlab.com:witch_game/atmospherichouse.git
+[submodule "Assets/Packages/Banshee"]
+	path = Assets/Packages/Banshee
+	url = git@gitlab.com:witch_game/banshee.git
+[submodule "Assets/Packages/SorcerersHut"]
+	path = Assets/Packages/SorcerersHut
+	url = git@gitlab.com:witch_game/sorcerershut.git
+[submodule "Assets/Packages/Mossy_Cedrus_Forest"]
+	path = Assets/Packages/Mossy_Cedrus_Forest
+	url = git@gitlab.com:witch_game/mossy_cedrus_forest.git
+[submodule "Assets/Packages/PlayerVisual"]
+	path = Assets/Packages/PlayerVisual
+	url = git@gitlab.com:witch_game/playervisual.git
+[submodule "Assets/Packages/chapter_2_labyrinth"]
+	path = Assets/Packages/chapter_2_labyrinth
+	url = git@gitlab.com:witch_game/chapter_2_labyrinth.git
+[submodule "Assets/Packages/chapter_3_cycled"]
+	path = Assets/Packages/chapter_3_cycled
+	url = git@gitlab.com:witch_game/chapter_3_cycled.git

@@ -7,16 +7,16 @@ using UnityEngine;
 public static class G
 {
     public static bool IsInitialized { get; private set; }
-    private static List<ProjectSingleton> _container;
+    private static List<GSingleton> _container;
 
     public static async UniTask Initialize()
     {
         Debug.Log("Project Initializing...");
-        _container = new List<ProjectSingleton>();
-        var subs = ReflectionUtil.FindAllSubslasses<ProjectSingleton>();
+        _container = new List<GSingleton>();
+        var subs = ReflectionUtil.FindAllSubslasses<GSingleton>();
         foreach (var subclass in subs)
         {
-            _container.Add(Activator.CreateInstance(subclass) as ProjectSingleton);
+            _container.Add(Activator.CreateInstance(subclass) as GSingleton);
         }
 
         foreach (var projectSingleton in _container)
@@ -27,14 +27,14 @@ public static class G
 
         foreach (var projectSingleton in _container)
         {
-            projectSingleton.AfterInitialize();
+            await projectSingleton.AfterInitialize();
         }
 
         IsInitialized = true;
         Debug.Log("Project Initialized!");
     }
 
-    public static T Get<T>() where T : ProjectSingleton
+    public static T Get<T>() where T : GSingleton
     {
         if (_container == null)
         {

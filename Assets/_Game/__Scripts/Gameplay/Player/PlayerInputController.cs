@@ -8,22 +8,31 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
     private Vector2 _cameraDirection;
     private InputSystem _inputSystem;
 
-    private void Start()
-    {
-        _ps = G.Get<PlayerService>();
-    }
+    private bool _isInitialize;
 
+    public void Initialize()
+    {
+        _isInitialize = true;
+        _ps = G.Get<PlayerService>();
+        _inputSystem = new InputSystem();
+        _inputSystem.Enable();
+        _inputSystem.Player.SetCallbacks(this);
+    }
+    
     public void OnEnable()
     {
-        _inputSystem ??= new InputSystem();
+        if (!_isInitialize)
+        {
+            return;
+        }
         _inputSystem.Enable();
         _inputSystem.Player.SetCallbacks(this);
     }
 
     private void OnDisable()
     {
-        _inputSystem.Player.RemoveCallbacks(this);
-        _inputSystem.Disable();
+        _inputSystem?.Player.RemoveCallbacks(this);
+        _inputSystem?.Disable();
     }
 
     private void FixedUpdate()

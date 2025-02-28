@@ -13,5 +13,14 @@ public class CarSeat : BaseInteract, IInteractable
     {
         base.StartInteract();
         _camera.Priority = 21;
+        G.Get<PlayerService>().Disable();
+        G.Get<CarService>().Enable();
+    }
+
+    public void Exit()
+    {
+        _camera.Priority = 10;
+        G.Get<CarService>().Disable();
+        G.Get<PlayerService>().Enable();
     }
 }

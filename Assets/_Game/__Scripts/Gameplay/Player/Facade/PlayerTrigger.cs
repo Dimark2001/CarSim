@@ -1,21 +1,21 @@
+using System;
 using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
     public BaseInteract CurrentInteractTarget { get; private set; }
-
-    [SerializeField]
-    private float _interactionRayDistance = 2.3f;
-
-    [SerializeField]
-    private float _interactionSphereRadius = 0.25f;
-
+    
     [SerializeField]
     private LayerMask _layerMask;
 
     private IInteractable _currentTriggerInfo;
     private GameplayWindow _gameplayWindow;
     private int _frameOptimizeCounter;
+
+    private void Start()
+    {
+        _gameplayWindow = G.Get<UIService>().UIFacade.GameplayWindow;
+    }
 
     private void UpdateTriggerUI()
     {

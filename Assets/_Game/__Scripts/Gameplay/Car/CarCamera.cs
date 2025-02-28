@@ -19,14 +19,18 @@ public class CarCamera : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    public void Move(Vector2 mouseDelta)
     {
-        var mouseDelta = new Vector2();
         var rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * _sensitivity);
         _frameVelocity = Vector2.Lerp(_frameVelocity, rawFrameVelocity, 1 / _smoothing);
         _velocity += _frameVelocity;
         _velocity.y = Mathf.Clamp(_velocity.y, -90, 90);
 
         _character.localRotation = Quaternion.Euler(_velocity.y, _velocity.x, 0);
+    }
+
+    public void ResetPosition()
+    {
+        Move(Vector2.zero);
     }
 }

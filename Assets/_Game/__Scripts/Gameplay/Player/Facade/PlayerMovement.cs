@@ -34,8 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         var targetVelocity = new Vector2(direction.x * targetMovingSpeed, direction.y * targetMovingSpeed);
 
-        _rigidbody.linearVelocity = transform.rotation *
-                                    new Vector3(targetVelocity.x, _rigidbody.linearVelocity.y, targetVelocity.y);
+        _rigidbody.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, _rigidbody.linearVelocity.y, targetVelocity.y);
     }
 
     public void Run(bool isRun)

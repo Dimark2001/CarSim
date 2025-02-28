@@ -44,7 +44,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687180947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f45facc01772ba47a9ae17bb7061b71, type: 3}
   m_Name: 
@@ -426,9 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec72980442fddac4d86e75ab24b4d027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 4207293392497186}
-  sensitivity: 2
-  smoothing: 1.5
+  _character: {fileID: 4207293392497186}
+  _sensitivity: 0.15
+  _smoothing: 1.5
 --- !u!1 &1773623360729482
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,11 +440,13 @@ GameObject:
   - component: {fileID: 4207293392497186}
   - component: {fileID: 136877096903737240}
   - component: {fileID: 54063890643546284}
+  - component: {fileID: 5205719990804546636}
   - component: {fileID: 114963311885979670}
   - component: {fileID: 114497868231759342}
   - component: {fileID: 114762042097486276}
+  - component: {fileID: 5963086749545826788}
   m_Layer: 0
-  m_Name: First Person Controller
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,6 +522,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &5205719990804546636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d615325e870341949c1a2eb1005249d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Trigger>k__BackingField: {fileID: 6411874095426496862}
+  <Movement>k__BackingField: {fileID: 114963311885979670}
+  <Camera>k__BackingField: {fileID: 114657890492222300}
+  <Interaction>k__BackingField: {fileID: 2728610413197573751}
+  <Input>k__BackingField: {fileID: 5963086749545826788}
 --- !u!114 &114963311885979670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,8 +551,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fca36bd81de7c4cafce7bbf02ca611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Wrapper>k__BackingField:
+    <Crouch>k__BackingField: {fileID: 114762042097486276}
+    <Jump>k__BackingField: {fileID: 114497868231759342}
   _speed: 5
+  _runSpeed: 10
   _canRun: 1
+  _rigidbody: {fileID: 54063890643546284}
 --- !u!114 &114497868231759342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +570,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f977f53412d81140ab13b3fca57cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpStrength: 0.1
+  _jumpStrength: 1.5
+  _rigidbody: {fileID: 54063890643546284}
   _groundCheck: {fileID: 114503055206606986}
 --- !u!114 &114762042097486276
 MonoBehaviour:
@@ -561,10 +586,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movement: {fileID: 114963311885979670}
-  _movementSpeed: 2
-  _headToLower: {fileID: 0}
+  _movementSpeed: 1
+  _headToLower: {fileID: 4490257326247362}
   _crouchYHeadPosition: 1
-  _colliderToLower: {fileID: 0}
+  _colliderToLower: {fileID: 136877096903737240}
+--- !u!114 &5963086749545826788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5006fa3a2f48219b5dd94d52cdf2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1166,7 @@ GameObject:
   - component: {fileID: 6316520595009266271}
   - component: {fileID: 2728610413197573751}
   - component: {fileID: 6411874095426496862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293aa170c004485081fd5b70bb62e931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <HoldingParentTransform>k__BackingField: {fileID: 0}
+  <HoldingParentTransform>k__BackingField: {fileID: 3584173371560253749}
 --- !u!114 &6411874095426496862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,8 +1287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8b90588b0d4ec8a3ed616ceb23a658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionRayDistance: 2.3
-  _interactionSphereRadius: 1
   _layerMask:
     serializedVersion: 2
     m_Bits: 64

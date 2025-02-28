@@ -12,7 +12,7 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Interact()
     {
-        _isInteracting = TryInteractFromRayCast();
+        _isInteracting = TryInteractWithCurrent();
     }
     
     public void StopInteract()
@@ -23,9 +23,9 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    private bool TryInteractFromRayCast()
+    private bool TryInteractWithCurrent()
     {
-        var interact = G.Get<PlayerService>().Player.Interaction._currentInteractObject;
+        var interact = G.Get<PlayerService>().Player.Trigger.CurrentInteractTarget;
         if (interact == null)
         {
             return false;
@@ -40,6 +40,4 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractObject.StartInteract();
         return true;
     }
-
-    
 }

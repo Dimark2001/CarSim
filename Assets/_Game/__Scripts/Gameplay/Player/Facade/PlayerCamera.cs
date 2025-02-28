@@ -24,4 +24,9 @@ public class PlayerCamera : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(-_velocity.y, Vector3.right);
         _character.localRotation = Quaternion.AngleAxis(_velocity.x, Vector3.up);
     }
+
+    public void ResetPosition()
+    {
+        Move(Vector2.zero);
+    }
 }

@@ -1,7 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
-using UnityEngine;
 
-public abstract class ProjectSingleton
+public abstract class GSingleton
 {
     public bool IsInitialized;
     

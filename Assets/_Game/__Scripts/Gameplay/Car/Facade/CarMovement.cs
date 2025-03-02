@@ -34,23 +34,25 @@ public class CarMovement : MonoBehaviour
     [Space(10)]
     public Vector3 bodyMassCenter;
 
+    [Space(10)]
     public GameObject frontLeftMesh;
     public WheelCollider frontLeftCollider;
+    public Transform frontLeftTransform;
 
     [Space(10)]
     public GameObject frontRightMesh;
-
     public WheelCollider frontRightCollider;
+    public Transform frontRightTransform;
 
     [Space(10)]
     public GameObject rearLeftMesh;
-
     public WheelCollider rearLeftCollider;
+    public Transform rearLeftTransform;
 
     [Space(10)]
     public GameObject rearRightMesh;
-
     public WheelCollider rearRightCollider;
+    public Transform rearRightTransform;
 
     [Space(20)]
     public bool useEffects = false;
@@ -112,10 +114,14 @@ public class CarMovement : MonoBehaviour
 
     public Vector2 MoveDirection;
     public bool IsHandbrake;
-
+    
     private void Awake()
     {
         _carRigidbody = GetComponent<Rigidbody>();
+        frontLeftTransform = frontLeftCollider.transform;
+        frontRightTransform = frontRightCollider.transform;
+        rearLeftTransform = rearLeftCollider.transform;
+        rearRightTransform = rearRightCollider.transform;
     }
 
     private void Start()
@@ -218,6 +224,11 @@ public class CarMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        AnimateWheelMeshes();
+    }
+
     public void Move()
     {
         carSpeed = 2 * Mathf.PI * frontLeftCollider.radius * frontLeftCollider.rpm * 60 / 1000;
@@ -250,7 +261,7 @@ public class CarMovement : MonoBehaviour
             TurnRight();
         }
 
-        if (MoveDirection.x == 0)
+        if (MoveDirection.x == 0 && MoveDirection.y == 0)
         {
             ThrottleOff();
         }
@@ -265,8 +276,6 @@ public class CarMovement : MonoBehaviour
         {
             ResetSteeringAngle();
         }
-
-        AnimateWheelMeshes();
     }
 
     private void CarSpeedUI()
@@ -380,29 +389,10 @@ public class CarMovement : MonoBehaviour
     {
         try
         {
-            Quaternion FLWRotation;
-            Vector3 FLWPosition;
-            frontLeftCollider.GetWorldPose(out FLWPosition, out FLWRotation);
-            frontLeftMesh.transform.position = FLWPosition;
-            frontLeftMesh.transform.rotation = FLWRotation;
-
-            Quaternion FRWRotation;
-            Vector3 FRWPosition;
-            frontRightCollider.GetWorldPose(out FRWPosition, out FRWRotation);
-            frontRightMesh.transform.position = FRWPosition;
-            frontRightMesh.transform.rotation = FRWRotation;
-
-            Quaternion RLWRotation;
-            Vector3 RLWPosition;
-            rearLeftCollider.GetWorldPose(out RLWPosition, out RLWRotation);
-            rearLeftMesh.transform.position = RLWPosition;
-            rearLeftMesh.transform.rotation = RLWRotation;
-
-            Quaternion RRWRotation;
-            Vector3 RRWPosition;
-            rearRightCollider.GetWorldPose(out RRWPosition, out RRWRotation);
-            rearRightMesh.transform.position = RRWPosition;
-            rearRightMesh.transform.rotation = RRWRotation;
+            frontLeftMesh.transform.SetPositionAndRotation(frontLeftTransform.position, frontLeftTransform.rotation);
+            frontRightMesh.transform.SetPositionAndRotation(frontRightTransform.position, frontRightTransform.rotation);
+            rearLeftMesh.transform.SetPositionAndRotation(rearLeftTransform.position, rearLeftTransform.rotation);
+            rearRightMesh.transform.SetPositionAndRotation(rearRightTransform.position, rearRightTransform.rotation);
         }
         catch (Exception ex)
         {

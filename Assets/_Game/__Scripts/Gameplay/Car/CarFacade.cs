@@ -13,6 +13,9 @@ public class CarFacade : MonoBehaviour
     
     [field: SerializeField]
     public CarSeat Seat { get; private set; }
+    
+    [field: SerializeField]
+    public CarSkeleton Skeleton { get; private set; }
 
     private void Reset()
     {
@@ -20,5 +23,6 @@ public class CarFacade : MonoBehaviour
         Input = GetComponentInChildren<CarInputController>(true);
         Movement = GetComponentInChildren<CarMovement>(true);
         Seat = GetComponentInChildren<CarSeat>(true);
+        Skeleton = GetComponentInChildren<CarSkeleton>(true);
     }
 }

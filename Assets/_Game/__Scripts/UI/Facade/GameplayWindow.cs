@@ -10,7 +10,7 @@ public class GameplayWindow : UIElement
     {
     }
 
-    public void ShowSeeingInfo(IInteractable uiInfo)
+    public void ShowSeeingInfo(BaseInteract uiInfo)
     {
         _infoText.text = uiInfo.UiLabel;
         _infoText.gameObject.SetActive(true);

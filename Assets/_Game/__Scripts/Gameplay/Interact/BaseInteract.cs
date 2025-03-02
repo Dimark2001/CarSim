@@ -7,6 +7,9 @@ public abstract class BaseInteract : MonoBehaviour
     public event Action OnStopInteractCall;
 
     [field: SerializeField]
+    public string UiLabel { get; set; }
+
+    [field: SerializeField]
     public bool IsInteractionBlocked { get; protected set; }
 
     public bool IsInInteraction { get; protected set; }

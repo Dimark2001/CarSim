@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 44945661123457735}
   - component: {fileID: 4379152949551804333}
+  - component: {fileID: 4494024386441994154}
+  - component: {fileID: 4404088889480565733}
   m_Layer: 6
   m_Name: FrontRightWheel
   m_TagString: Untagged
@@ -41,7 +43,7 @@ WheelCollider:
   m_GameObject: {fileID: 581022778406489383}
   serializedVersion: 2
   m_Center: {x: 0, y: 0.15, z: 0}
-  m_Radius: 0.36
+  m_Radius: 0.31
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -71,6 +73,44 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!114 &4494024386441994154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581022778406489383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UiLabel>k__BackingField: Grab Wheel
+  <IsInteractionBlocked>k__BackingField: 0
+  _wheel: {fileID: 4379152949551804333}
+  _meshCollider: {fileID: 4404088889480565733}
+--- !u!64 &4404088889480565733
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581022778406489383}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4772344104055610487, guid: 2c403376ef1fe604d8de45d141d39b07, type: 3}
 --- !u!1 &1886823025623629123
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1695591474691012844}
   - component: {fileID: 995552580542903760}
+  - component: {fileID: 3240260295009035978}
+  - component: {fileID: 8250631807094433717}
   m_Layer: 6
   m_Name: RearRightWheel
   m_TagString: Untagged
@@ -112,7 +154,7 @@ WheelCollider:
   m_GameObject: {fileID: 1886823025623629123}
   serializedVersion: 2
   m_Center: {x: 0, y: 0.15, z: 0}
-  m_Radius: 0.36
+  m_Radius: 0.31
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -142,6 +184,44 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!114 &3240260295009035978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886823025623629123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UiLabel>k__BackingField: Grab Wheel
+  <IsInteractionBlocked>k__BackingField: 0
+  _wheel: {fileID: 995552580542903760}
+  _meshCollider: {fileID: 8250631807094433717}
+--- !u!64 &8250631807094433717
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886823025623629123}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4772344104055610487, guid: 2c403376ef1fe604d8de45d141d39b07, type: 3}
 --- !u!1 &3949631768052433671
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,6 +267,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6039331204919964253}
   - component: {fileID: 5080163321142159737}
+  - component: {fileID: 948338769796133971}
+  - component: {fileID: 20861955512587774}
   m_Layer: 6
   m_Name: FrontLeftWheel
   m_TagString: Untagged
@@ -218,7 +300,7 @@ WheelCollider:
   m_GameObject: {fileID: 4263340644117533252}
   serializedVersion: 2
   m_Center: {x: 0, y: 0.15, z: 0}
-  m_Radius: 0.36
+  m_Radius: 0.31
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -248,6 +330,44 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!114 &948338769796133971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263340644117533252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UiLabel>k__BackingField: Grab Wheel
+  <IsInteractionBlocked>k__BackingField: 0
+  _wheel: {fileID: 5080163321142159737}
+  _meshCollider: {fileID: 20861955512587774}
+--- !u!64 &20861955512587774
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263340644117533252}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4772344104055610487, guid: 2c403376ef1fe604d8de45d141d39b07, type: 3}
 --- !u!1 &4520385518899643005
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +378,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3025740539809172698}
   - component: {fileID: 765160620635920387}
+  - component: {fileID: 7599542977728886926}
+  - component: {fileID: 1576593615305860819}
   m_Layer: 6
   m_Name: RearLeftWheel
   m_TagString: Untagged
@@ -289,7 +411,7 @@ WheelCollider:
   m_GameObject: {fileID: 4520385518899643005}
   serializedVersion: 2
   m_Center: {x: 0, y: 0.15, z: 0}
-  m_Radius: 0.36
+  m_Radius: 0.31
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -319,6 +441,44 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!114 &7599542977728886926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520385518899643005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <UiLabel>k__BackingField: Grab Wheel
+  <IsInteractionBlocked>k__BackingField: 0
+  _wheel: {fileID: 765160620635920387}
+  _meshCollider: {fileID: 1576593615305860819}
+--- !u!64 &1576593615305860819
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520385518899643005}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4772344104055610487, guid: 2c403376ef1fe604d8de45d141d39b07, type: 3}
 --- !u!1 &4567982620723860599
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,9 +770,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -7138299352944750804, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Name
@@ -626,6 +794,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4182551394361426624, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7953606483559150473, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -633,6 +805,10 @@ PrefabInstance:
     - target: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -665,6 +841,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9118648893147620648}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676480794356571134}
     - targetCorrespondingSourceObject: {fileID: 7953606483559150473, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6363801155242296642}
@@ -723,6 +902,7 @@ MonoBehaviour:
   <Input>k__BackingField: {fileID: 9118648893147620648}
   <Movement>k__BackingField: {fileID: 2394682604763968644}
   <Seat>k__BackingField: {fileID: 8052647905403660162}
+  <Skeleton>k__BackingField: {fileID: 1676480794356571134}
 --- !u!114 &2394682604763968644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,12 +926,16 @@ MonoBehaviour:
   bodyMassCenter: {x: 0, y: 0, z: 0}
   frontLeftMesh: {fileID: 1011849398579750998}
   frontLeftCollider: {fileID: 5080163321142159737}
+  frontLeftTransform: {fileID: 0}
   frontRightMesh: {fileID: 3537136795351468856}
   frontRightCollider: {fileID: 4379152949551804333}
+  frontRightTransform: {fileID: 0}
   rearLeftMesh: {fileID: 1725632881659397844}
   rearLeftCollider: {fileID: 765160620635920387}
+  rearLeftTransform: {fileID: 0}
   rearRightMesh: {fileID: 8286146095597500217}
   rearRightCollider: {fileID: 995552580542903760}
+  rearRightTransform: {fileID: 0}
   useEffects: 1
   RLWParticleSystem: {fileID: 2132086627087248069}
   RRWParticleSystem: {fileID: 7490761171918471226}
@@ -797,9 +981,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3758153441254506596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,6 +1011,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79af8c70c88409ea50b2d4cba44e0d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1676480794356571134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566449322708972713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c988dacd3faa43149646a6dcb0eea7e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sComponents:
+  - {fileID: 6039331204919964253}
+  - {fileID: 3025740539809172698}
+  - {fileID: 44945661123457735}
+  - {fileID: 1695591474691012844}
+  _rb: {fileID: 8864332629314089250}
 --- !u!4 &907402778587196947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -1075,9 +1277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf034404e2b747038c1e540a7a491465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <UiLabel>k__BackingField: Sit in car
   <IsInteractionBlocked>k__BackingField: 0
   _camera: {fileID: 4354694805849654503}
-  <UiLabel>k__BackingField: Sit in car
 --- !u!1 &7559389147968459402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2020604294935127182, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}

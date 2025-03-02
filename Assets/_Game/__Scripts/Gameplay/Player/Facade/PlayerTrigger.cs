@@ -1,66 +1,63 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerTrigger : MonoBehaviour
 {
     public BaseInteract CurrentInteractTarget { get; private set; }
-    
+
     [SerializeField]
     private LayerMask _layerMask;
 
-    private IInteractable _currentTriggerInfo;
     private GameplayWindow _gameplayWindow;
     private int _frameOptimizeCounter;
 
+    private List<BaseInteract> _interactList;
+
     private void Start()
     {
+        _interactList = new List<BaseInteract>();
         _gameplayWindow = G.Get<UIService>().UIFacade.GameplayWindow;
     }
 
-    private void UpdateTriggerUI()
+    private void FindClosestInteract()
     {
-        if (_currentTriggerInfo != null)
+        if (_interactList.Count == 0)
         {
-            _gameplayWindow.ShowSeeingInfo(_currentTriggerInfo);
-        }
-        else
-        {
+            CurrentInteractTarget = null;
             _gameplayWindow.HideSeeingInfo();
+            return;
         }
+
+        var orderedEnumerable = _interactList.OrderBy(i => Vector3.Distance(transform.position, i.transform.position));
+        CurrentInteractTarget = orderedEnumerable.FirstOrDefault();
+        _gameplayWindow.ShowSeeingInfo(CurrentInteractTarget);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!CurrentInteractTarget && other.TryGetComponent<BaseInteract>(out var interact) &&
-            !interact.IsInteractionBlocked)
+        if (!other.TryGetComponent<BaseInteract>(out var interact))
         {
-            CurrentInteractTarget = interact;
+            return;
         }
 
-        if (CurrentInteractTarget && !CurrentInteractTarget.IsInteractionBlocked)
+        if (_interactList.Contains(interact))
         {
-            var isInteractionSame = other.gameObject == CurrentInteractTarget.gameObject;
-            if (isInteractionSame)
-            {
-                var uiInfo = other.GetComponentInParent<IInteractable>();
-                if (uiInfo != null)
-                {
-                    _currentTriggerInfo = uiInfo;
-                }
-            }
+            return;
         }
 
-        UpdateTriggerUI();
+        _interactList.Add(interact);
+        FindClosestInteract();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (CurrentInteractTarget && other.gameObject == CurrentInteractTarget.gameObject)
+        if (!other.TryGetComponent<BaseInteract>(out var interact))
         {
-            CurrentInteractTarget = null;
-            _currentTriggerInfo = null;
+            return;
         }
 
-        UpdateTriggerUI();
+        _interactList.Remove(interact);
+        FindClosestInteract();
     }
 }

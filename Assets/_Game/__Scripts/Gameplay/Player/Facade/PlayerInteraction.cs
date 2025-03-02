@@ -7,8 +7,9 @@ public class PlayerInteraction : MonoBehaviour
     public Transform HoldingParentTransform { get; private set; }
 
     private PlayerInputController _playerInputController;
-    private bool _isInteracting;
     private BaseInteract _currentInteractObject;
+    
+    private bool _isInteracting;
 
     public void Interact()
     {

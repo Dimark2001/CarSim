@@ -1,13 +1,10 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 
-public class CarSeat : BaseInteract, IInteractable
+public class CarSeat : BaseInteract
 {
     [SerializeField]
     private CinemachineCamera _camera;
-    
-    [field: SerializeField]
-    public string UiLabel { get; set; }
 
     public override void StartInteract()
     {

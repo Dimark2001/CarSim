@@ -31,8 +31,8 @@ public class CarSkeleton : MonoBehaviour
     {
         _sComponents.Add(sComponent);
         var comp = _removedSComponents.Find(w => w.Transform == sComponent);
-        
-        sComponent.SetParent(comp.Parent, true);
+
+        sComponent.SetParent(comp.Parent);
         sComponent.SetLocalPositionAndRotation(comp.Position, comp.Rotation);
         
         _removedSComponents.Remove(comp);

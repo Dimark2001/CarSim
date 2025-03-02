@@ -12,14 +12,12 @@ public class WheelInteract : BaseInteract
 
     private Rigidbody _rb;
 
-    private Transform _parent;
     private Transform _holdingParent;
     private CarService _carService;
     private WheelState _wheelState = WheelState.Car;
 
     private void Start()
     {
-        _parent = transform.parent;
         _holdingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
         _carService = G.Get<CarService>();
     }
@@ -33,19 +31,14 @@ public class WheelInteract : BaseInteract
     {
         InteractState();
 
-        transform.DOMove(_holdingParent.position, 0.5f);
-        transform.DORotate(_holdingParent.rotation.eulerAngles, 0.5f).OnComplete(() =>
-        {
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        });
+        transform.DOMove(_holdingParent.position, 0.2f);
+        transform.DORotate(_holdingParent.rotation.eulerAngles, 0.2f);
     }
 
     public override void StopInteract()
     {
         base.StopInteract();
         TryAttachToCar();
-        DownState();
     }
 
     private void TryAttachToCar()
@@ -53,12 +46,15 @@ public class WheelInteract : BaseInteract
         var colliders = Physics.OverlapSphere(transform.position, 1f).ToList();
         var find = colliders.Find(c =>
         {
-            if (c.TryGetComponent(out CarSkeleton skeleton))
+            var q = c.GetComponentInParent<CarSkeleton>();
+            if (q != null)
             {
-                skeleton.ReturnComponent(transform);
+                CarState();
+                q.ReturnComponent(transform);
                 return true;
             }
 
+            DownState();
             return false;
         });
     }
@@ -91,8 +87,6 @@ public class WheelInteract : BaseInteract
             Destroy(_rb);
             _rb = null;
         }
-
-        transform.parent = _parent;
 
         _wheel.enabled = true;
         _meshCollider.isTrigger = true;

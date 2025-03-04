@@ -101,7 +101,7 @@ public class CarMovement : MonoBehaviour
     private float _localVelocityX;
     private bool _deceleratingCar;
 
-    private bool _touchControlsSetup = false;
+    //private bool _touchControlsSetup = false;
 
     private WheelFrictionCurve _fLwheelFriction;
     private float _flWextremumSlip;

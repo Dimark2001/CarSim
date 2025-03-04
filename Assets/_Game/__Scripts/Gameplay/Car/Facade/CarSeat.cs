@@ -1,4 +1,5 @@
-﻿using Unity.Cinemachine;
+﻿using Cysharp.Threading.Tasks;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CarSeat : BaseInteract
@@ -6,18 +7,43 @@ public class CarSeat : BaseInteract
     [SerializeField]
     private CinemachineCamera _camera;
 
-    public override void StartInteract()
+    [SerializeField]
+    private Transform _exitTransform;
+
+    private PlayerService _playerService;
+    private CarService _carService;
+    private CameraService _cameraService;
+
+    private void Start()
+    {
+        _playerService = G.Get<PlayerService>();
+        _carService = G.Get<CarService>();
+        _cameraService = G.Get<CameraService>();
+    }
+
+
+    public override async void StartInteract()
     {
         base.StartInteract();
         _camera.Priority = 21;
-        G.Get<PlayerService>().Disable();
-        G.Get<CarService>().Enable();
+        
+        _playerService.Player.Input.enabled = false;
+        _playerService.Player.Visual.Hide();
+        await UniTask.WaitForSeconds(_cameraService.Camera.Brain.DefaultBlend.Time);
+        _playerService.Disable();
+        
+        _carService.Enable();
     }
 
-    public void Exit()
+    public async void Exit()
     {
         _camera.Priority = 10;
-        G.Get<CarService>().Disable();
-        G.Get<PlayerService>().Enable();
+       
+        _carService.Car.Input.enabled = false;
+        _playerService.Player.Movement.Teleport(_exitTransform.position);
+        await UniTask.WaitForSeconds(_cameraService.Camera.Brain.DefaultBlend.Time);
+        _carService.Disable();
+        
+        _playerService.Enable();
     }
 }

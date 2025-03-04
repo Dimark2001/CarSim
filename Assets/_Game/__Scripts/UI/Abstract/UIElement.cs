@@ -12,6 +12,7 @@ public abstract class UIElement : MonoBehaviour
         _canvasGroup.alpha = 1f;
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
+        await UniTask.CompletedTask;
     }
     
     protected virtual async UniTask Hide()
@@ -19,5 +20,6 @@ public abstract class UIElement : MonoBehaviour
         _canvasGroup.alpha = 0f;
         _canvasGroup.blocksRaycasts = false;
         _canvasGroup.interactable = false;
+        await UniTask.CompletedTask;
     }
 }

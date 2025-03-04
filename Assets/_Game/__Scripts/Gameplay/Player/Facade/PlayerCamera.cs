@@ -13,7 +13,7 @@ public class PlayerCamera : MonoBehaviour
 
     private Vector2 _velocity;
     private Vector2 _frameVelocity;
-    
+
     public void Move(Vector2 mouseDelta)
     {
         var rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * _sensitivity);
@@ -27,6 +27,9 @@ public class PlayerCamera : MonoBehaviour
 
     public void ResetPosition()
     {
-        Move(Vector2.zero);
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        _character.localRotation = Quaternion.Euler(Vector3.zero);
+        _frameVelocity = Vector2.zero;
+        _velocity = Vector2.zero;
     }
 }

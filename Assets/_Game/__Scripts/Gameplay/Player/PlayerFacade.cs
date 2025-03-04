@@ -16,6 +16,9 @@ public class PlayerFacade : MonoBehaviour
     
     [field: SerializeField]
     public PlayerInputController Input { get; private set; }
+    
+    [field: SerializeField]
+    public PlayerVisual Visual { get; private set; }
 
     private void Reset()
     {
@@ -24,5 +27,6 @@ public class PlayerFacade : MonoBehaviour
         Movement = GetComponentInChildren<PlayerMovement>();
         Camera = GetComponentInChildren<PlayerCamera>();
         Interaction = GetComponentInChildren<PlayerInteraction>();
+        Visual = GetComponentInChildren<PlayerVisual>();
     }
 }

@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 114497868231759342}
   - component: {fileID: 114762042097486276}
   - component: {fileID: 5963086749545826788}
+  - component: {fileID: 4911229684576348262}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -539,6 +540,7 @@ MonoBehaviour:
   <Camera>k__BackingField: {fileID: 114657890492222300}
   <Interaction>k__BackingField: {fileID: 2728610413197573751}
   <Input>k__BackingField: {fileID: 5963086749545826788}
+  <Visual>k__BackingField: {fileID: 4911229684576348262}
 --- !u!114 &114963311885979670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f977f53412d81140ab13b3fca57cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpStrength: 1.5
+  _jumpStrength: 2
   _rigidbody: {fileID: 54063890643546284}
   _groundCheck: {fileID: 114503055206606986}
 --- !u!114 &114762042097486276
@@ -602,6 +604,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5006fa3a2f48219b5dd94d52cdf2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4911229684576348262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773623360729482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fef10de4b5b4dd39df6b6e8b1b40d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visual: {fileID: 1130725078037024}
 --- !u!1 &1963958859065967600
 GameObject:
   m_ObjectHideFlags: 0

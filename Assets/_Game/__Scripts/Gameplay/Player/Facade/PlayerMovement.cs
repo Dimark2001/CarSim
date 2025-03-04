@@ -48,7 +48,12 @@ public class PlayerMovement : MonoBehaviour
             IsRunning = false;
         }
     }
-
+    
+    public void Teleport(Vector3 position)
+    {
+        transform.position = position;
+    }
+    
     [Serializable]
     public class MovementWrapper
     {
@@ -57,5 +62,11 @@ public class PlayerMovement : MonoBehaviour
 
         [field: SerializeField]
         public Jump Jump { get; private set; }
+    }
+
+    public void ResetPosition()
+    {
+        _rigidbody.linearVelocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 }

@@ -8,11 +8,13 @@ public class UIService : GSingleton
     public override async UniTask Initialize()
     {
         CreateGameplayWindow();
+        await UniTask.CompletedTask;
     }
 
     public override async UniTask AfterInitialize()
     {
         UIFacade.GameplayWindow.Initialize();
+        await UniTask.CompletedTask;
     }
 
     public void CreateGameplayWindow()

@@ -31,6 +31,8 @@ public class CarCamera : MonoBehaviour
 
     public void ResetPosition()
     {
-        Move(Vector2.zero);
+        _character.localRotation = Quaternion.identity;
+        _frameVelocity = Vector2.zero;
+        _velocity = Vector2.zero;
     }
 }

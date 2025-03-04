@@ -8,12 +8,14 @@ public class CarService : GSingleton
     public override async UniTask Initialize()
     {
         CreateCar(new Vector3(0f, 0.8f, 0));
+        await UniTask.CompletedTask;
     }
 
     public override async UniTask AfterInitialize()
     {
         Car.Input.Initialize();
         Disable();
+        await UniTask.CompletedTask;
     }
 
     private void CreateCar(Vector3 vector3)
@@ -31,5 +33,6 @@ public class CarService : GSingleton
     public void Enable()
     {
         Car.Input.enabled = true;
+        Car.Camera.ResetPosition();
     }
 }

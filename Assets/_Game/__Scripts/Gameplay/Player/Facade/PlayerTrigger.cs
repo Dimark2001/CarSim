@@ -8,16 +8,23 @@ public class PlayerTrigger : MonoBehaviour
 
     [SerializeField]
     private LayerMask _layerMask;
-
-    private GameplayWindow _gameplayWindow;
-    private int _frameOptimizeCounter;
-
+    
     private List<BaseInteract> _interactList;
 
+    private GameplayWindow _gameplayWindow;
+    
     private void Start()
     {
         _interactList = new List<BaseInteract>();
         _gameplayWindow = G.Get<UIService>().UIFacade.GameplayWindow;
+    }
+
+    public void Disable()
+    {
+        _interactList.Clear();
+        _gameplayWindow.HideSeeingInfo();
+        CurrentInteractTarget = null;
+        enabled = false;
     }
 
     private void FindClosestInteract()
@@ -36,6 +43,11 @@ public class PlayerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!enabled)
+        {
+            return;
+        }
+        
         if (!other.TryGetComponent<BaseInteract>(out var interact))
         {
             return;
@@ -52,6 +64,11 @@ public class PlayerTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!enabled)
+        {
+            return;
+        }
+        
         if (!other.TryGetComponent<BaseInteract>(out var interact))
         {
             return;

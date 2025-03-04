@@ -12,6 +12,7 @@ public static class GameResources
             public static UIFacade UIFacade => Resources.Load<UIFacade>("Prefabs/UI/UIFacade");
         }
         public static CarFacade Car => Resources.Load<CarFacade>("Prefabs/Car");
+        public static CameraFacade MainCamera => Resources.Load<CameraFacade>("Prefabs/MainCamera");
         public static PlayerFacade Player => Resources.Load<PlayerFacade>("Prefabs/Player");
     }
 }

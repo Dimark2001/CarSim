@@ -36,21 +36,25 @@ public class CarMovement : MonoBehaviour
 
     [Space(10)]
     public GameObject frontLeftMesh;
+
     public WheelCollider frontLeftCollider;
     public Transform frontLeftTransform;
 
     [Space(10)]
     public GameObject frontRightMesh;
+
     public WheelCollider frontRightCollider;
     public Transform frontRightTransform;
 
     [Space(10)]
     public GameObject rearLeftMesh;
+
     public WheelCollider rearLeftCollider;
     public Transform rearLeftTransform;
 
     [Space(10)]
     public GameObject rearRightMesh;
+
     public WheelCollider rearRightCollider;
     public Transform rearRightTransform;
 
@@ -114,7 +118,7 @@ public class CarMovement : MonoBehaviour
 
     public Vector2 MoveDirection;
     public bool IsHandbrake;
-    
+
     private void Awake()
     {
         _carRigidbody = GetComponent<Rigidbody>();
@@ -389,10 +393,30 @@ public class CarMovement : MonoBehaviour
     {
         try
         {
-            frontLeftMesh.transform.SetPositionAndRotation(frontLeftTransform.position, frontLeftTransform.rotation);
-            frontRightMesh.transform.SetPositionAndRotation(frontRightTransform.position, frontRightTransform.rotation);
-            rearLeftMesh.transform.SetPositionAndRotation(rearLeftTransform.position, rearLeftTransform.rotation);
-            rearRightMesh.transform.SetPositionAndRotation(rearRightTransform.position, rearRightTransform.rotation);
+            var frontLeftRotation = Quaternion.Euler(new Vector3(
+                frontLeftTransform.rotation.eulerAngles.x - 90,
+                frontLeftTransform.rotation.eulerAngles.y, 
+                frontLeftTransform.rotation.eulerAngles.z + 180));
+            
+            var frontRightRotation = Quaternion.Euler(new Vector3(
+                frontRightTransform.rotation.eulerAngles.x - 90,
+                frontRightTransform.rotation.eulerAngles.y, 
+                frontRightTransform.rotation.eulerAngles.z + 180));
+            
+            var rearLeftRotation = Quaternion.Euler(new Vector3(
+                rearLeftTransform.rotation.eulerAngles.x - 90,
+                rearLeftTransform.rotation.eulerAngles.y, 
+                rearLeftTransform.rotation.eulerAngles.z + 180));
+            
+            var rearRightRotation = Quaternion.Euler(new Vector3(
+                rearRightTransform.rotation.eulerAngles.x - 90,
+                rearRightTransform.rotation.eulerAngles.y, 
+                rearRightTransform.rotation.eulerAngles.z + 180));
+            
+            frontLeftMesh.transform.SetPositionAndRotation(frontLeftTransform.position, frontLeftRotation);
+            frontRightMesh.transform.SetPositionAndRotation(frontRightTransform.position, frontRightRotation);
+            rearLeftMesh.transform.SetPositionAndRotation(rearLeftTransform.position, rearLeftRotation);
+            rearRightMesh.transform.SetPositionAndRotation(rearRightTransform.position, rearRightRotation);
         }
         catch (Exception ex)
         {

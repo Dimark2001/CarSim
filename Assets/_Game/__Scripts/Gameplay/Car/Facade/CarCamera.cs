@@ -26,7 +26,7 @@ public class CarCamera : MonoBehaviour
         _velocity += _frameVelocity;
         _velocity.y = Mathf.Clamp(_velocity.y, -90, 90);
 
-        _character.localRotation = Quaternion.Euler(_velocity.y, _velocity.x, 0);
+        _character.localRotation = Quaternion.Euler(-_velocity.y, _velocity.x, 0);
     }
 
     public void ResetPosition()

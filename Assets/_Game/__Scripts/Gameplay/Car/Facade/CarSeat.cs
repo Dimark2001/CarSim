@@ -20,8 +20,7 @@ public class CarSeat : BaseInteract
         _carService = G.Get<CarService>();
         _cameraService = G.Get<CameraService>();
     }
-
-
+    
     public override async void StartInteract()
     {
         base.StartInteract();

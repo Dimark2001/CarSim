@@ -29,7 +29,6 @@ public class SkeletonInteract : BaseInteract
         InteractState();
 
         transform.DOMove(_holdingParent.position, 0.1f);
-        transform.DORotate(_holdingParent.rotation.eulerAngles, 0.1f);
     }
 
     public override void StopInteract()

@@ -132,7 +132,6 @@ public class CarMovement : MonoBehaviour
     {
         _carRigidbody = GetComponent<Rigidbody>();
         _carRigidbody.centerOfMass = bodyMassCenter;
-
         _fLwheelFriction = new WheelFrictionCurve
         {
             extremumSlip = frontLeftCollider.sidewaysFriction.extremumSlip,
@@ -344,26 +343,26 @@ public class CarMovement : MonoBehaviour
 
     private void TurnLeft()
     {
-        _steeringAxis = _steeringAxis - (Time.deltaTime * 10f * steeringSpeed);
+        _steeringAxis -= Time.deltaTime * 10f * steeringSpeed;
         if (_steeringAxis < -1f)
         {
             _steeringAxis = -1f;
         }
 
-        float steeringAngle = _steeringAxis * maxSteeringAngle;
+        var steeringAngle = _steeringAxis * maxSteeringAngle;
         frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
         frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
 
     private void TurnRight()
     {
-        _steeringAxis = _steeringAxis + (Time.deltaTime * 10f * steeringSpeed);
+        _steeringAxis += (Time.deltaTime * 10f * steeringSpeed);
         if (_steeringAxis > 1f)
         {
             _steeringAxis = 1f;
         }
 
-        float steeringAngle = _steeringAxis * maxSteeringAngle;
+        var steeringAngle = _steeringAxis * maxSteeringAngle;
         frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
         frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
@@ -372,11 +371,11 @@ public class CarMovement : MonoBehaviour
     {
         if (_steeringAxis < 0f)
         {
-            _steeringAxis = _steeringAxis + (Time.deltaTime * 10f * steeringSpeed);
+            _steeringAxis += Time.deltaTime * 10f * steeringSpeed;
         }
         else if (_steeringAxis > 0f)
         {
-            _steeringAxis = _steeringAxis - (Time.deltaTime * 10f * steeringSpeed);
+            _steeringAxis -= Time.deltaTime * 10f * steeringSpeed;
         }
 
         if (Mathf.Abs(frontLeftCollider.steerAngle) < 1f)
@@ -384,7 +383,7 @@ public class CarMovement : MonoBehaviour
             _steeringAxis = 0f;
         }
 
-        float steeringAngle = _steeringAxis * maxSteeringAngle;
+        var steeringAngle = _steeringAxis * maxSteeringAngle;
         frontLeftCollider.steerAngle = Mathf.Lerp(frontLeftCollider.steerAngle, steeringAngle, steeringSpeed);
         frontRightCollider.steerAngle = Mathf.Lerp(frontRightCollider.steerAngle, steeringAngle, steeringSpeed);
     }
@@ -393,26 +392,11 @@ public class CarMovement : MonoBehaviour
     {
         try
         {
-            var frontLeftRotation = Quaternion.Euler(new Vector3(
-                frontLeftTransform.rotation.eulerAngles.x - 90,
-                frontLeftTransform.rotation.eulerAngles.y, 
-                frontLeftTransform.rotation.eulerAngles.z + 180));
-            
-            var frontRightRotation = Quaternion.Euler(new Vector3(
-                frontRightTransform.rotation.eulerAngles.x - 90,
-                frontRightTransform.rotation.eulerAngles.y, 
-                frontRightTransform.rotation.eulerAngles.z + 180));
-            
-            var rearLeftRotation = Quaternion.Euler(new Vector3(
-                rearLeftTransform.rotation.eulerAngles.x - 90,
-                rearLeftTransform.rotation.eulerAngles.y, 
-                rearLeftTransform.rotation.eulerAngles.z + 180));
-            
-            var rearRightRotation = Quaternion.Euler(new Vector3(
-                rearRightTransform.rotation.eulerAngles.x - 90,
-                rearRightTransform.rotation.eulerAngles.y, 
-                rearRightTransform.rotation.eulerAngles.z + 180));
-            
+            frontLeftCollider.GetWorldPose(out _, out var frontLeftRotation);
+            frontRightCollider.GetWorldPose(out _, out var frontRightRotation);
+            rearLeftCollider.GetWorldPose(out _, out var rearLeftRotation);
+            rearRightCollider.GetWorldPose(out _, out var rearRightRotation);
+
             frontLeftMesh.transform.SetPositionAndRotation(frontLeftTransform.position, frontLeftRotation);
             frontRightMesh.transform.SetPositionAndRotation(frontRightTransform.position, frontRightRotation);
             rearLeftMesh.transform.SetPositionAndRotation(rearLeftTransform.position, rearLeftRotation);

@@ -28,6 +28,7 @@ public class CarService : GSingleton
     {
         Car.Input.enabled = false;
         Car.Camera.ResetPosition();
+        Car.Movement.Brakes();
     }
     
     public void Enable()

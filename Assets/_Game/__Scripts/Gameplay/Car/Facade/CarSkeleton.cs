@@ -6,37 +6,43 @@ public class CarSkeleton : MonoBehaviour
 {
     [SerializeField]
     private List<Transform> _sComponents;
+    [SerializeField]
+    private List<Transform> _bracingList;
 
     [SerializeField]
     private Rigidbody _rb;
 
     private List<SkeletonComponent> _removedSComponents = new();
     
-    public void RemoveComponent(Transform wheel)
+    public void RemoveComponent(Transform c)
     {
-        _sComponents.Remove(wheel);
+        _sComponents.Remove(c);
         var skeletonComponent = new SkeletonComponent
         {
-            Transform = wheel,
-            Parent = wheel.parent,
-            Position = wheel.localPosition,
-            Rotation = wheel.localRotation,
+            Transform = c,
+            Parent = c.parent,
         };
 
         _removedSComponents.Add(skeletonComponent);
         UpdateCar();
     }
 
-    public void ReturnComponent(Transform sComponent)
+    public bool TryConnectToBracing(Transform component, Transform bracing)
     {
-        _sComponents.Add(sComponent);
-        var comp = _removedSComponents.Find(w => w.Transform == sComponent);
+        if (component.name != bracing.name)
+        {
+            return false;
+        }
+        
+        _sComponents.Add(component);
+        var comp = _removedSComponents.Find(w => w.Transform == component);
 
-        sComponent.SetParent(comp.Parent);
-        sComponent.SetLocalPositionAndRotation(comp.Position, comp.Rotation);
+        component.SetParent(comp.Parent, true);
+        component.SetLocalPositionAndRotation(bracing.localPosition, bracing.localRotation);
         
         _removedSComponents.Remove(comp);
         UpdateCar();
+        return true;
     }
 
     private void UpdateCar()
@@ -49,7 +55,5 @@ public class CarSkeleton : MonoBehaviour
     {
         public Transform Transform { get; set; }
         public Transform Parent { get; set; }
-        public Vector3 Position { get; set; }
-        public Quaternion Rotation { get; set; }
     }
 }

@@ -10,6 +10,9 @@ public class WheelInteract : BaseInteract
     [SerializeField]
     private MeshCollider _meshCollider;
 
+    [SerializeField]
+    private float _sphereRadius = 0.5f;
+
     private Rigidbody _rb;
 
     private Transform _holdingParent;
@@ -42,24 +45,20 @@ public class WheelInteract : BaseInteract
 
     private void TryAttachToCar()
     {
-        var colliders = Physics.OverlapSphere(transform.position, 0.5f, 1 << LayerMask.NameToLayer("Skeleton"))
+        var colliders = Physics.OverlapSphere(transform.position, _sphereRadius, 1 << LayerMask.NameToLayer("Skeleton"))
             .ToList();
-        var find = colliders.Find(c =>
+
+        foreach (var c in colliders)
         {
             var q = c.GetComponentInParent<CarSkeleton>();
-            if (q != null && q.TryConnectToBracing(transform, c.transform))
+            if (q.TryConnectToBracing(transform, c.transform))
             {
                 CarState();
-                return true;
+                return;
             }
-
-            return false;
-        });
-
-        if (find == null)
-        {
-            DownState();
         }
+
+        DownState();
     }
 
     private void InteractState()

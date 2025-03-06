@@ -85,10 +85,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Wheel
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _wheel: {fileID: 4379152949551804333}
   _meshCollider: {fileID: 4404088889480565733}
+  _sphereRadius: 0.5
 --- !u!64 &4404088889480565733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 1845343212112548852}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1.0674202e-14, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000010181342, y: 0.015133175, z: 0.0015452931}
+  m_LocalPosition: {x: 0, y: 0.015133175, z: 0.0015452931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,10 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Wheel
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _wheel: {fileID: 995552580542903760}
   _meshCollider: {fileID: 8250631807094433717}
+  _sphereRadius: 0.5
 --- !u!64 &8250631807094433717
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -431,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5352823142083454437}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -573,7 +575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4636938721366444678}
   - component: {fileID: 4071661173220529615}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5773917662562902675}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ExitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,10 +734,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Wheel
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _wheel: {fileID: 5080163321142159737}
   _meshCollider: {fileID: 20861955512587774}
+  _sphereRadius: 0.5
 --- !u!64 &20861955512587774
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -878,10 +881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Wheel
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _wheel: {fileID: 765160620635920387}
   _meshCollider: {fileID: 1576593615305860819}
+  _sphereRadius: 0.5
 --- !u!64 &1576593615305860819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -914,7 +918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8153725048512826237}
   - component: {fileID: 1324858023790554220}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4189506893607833893}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,7 +1166,7 @@ GameObject:
   - component: {fileID: 5441927211669903781}
   - component: {fileID: 8085238032501903948}
   m_Layer: 7
-  m_Name: DverP001
+  m_Name: DverLP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,8 +1206,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
-  m_Center: {x: -0.7, y: 0.45, z: 0}
+  m_Radius: 0.2
+  m_Center: {x: -0.85, y: 0.45, z: 0}
 --- !u!1 &6087861606533518907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,7 +1219,7 @@ GameObject:
   - component: {fileID: 505125297900400918}
   - component: {fileID: 814808579463568842}
   m_Layer: 7
-  m_Name: DverP002
+  m_Name: DverLZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,8 +1259,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
-  m_Center: {x: -0.7, y: -0.45, z: 0}
+  m_Radius: 0.2
+  m_Center: {x: -0.85, y: -0.45, z: 0}
 --- !u!1 &6856922734596140409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1272,7 @@ GameObject:
   - component: {fileID: 4036984131686285147}
   - component: {fileID: 6289698650398067948}
   - component: {fileID: 2362601111696125972}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1389,7 +1393,7 @@ GameObject:
   - component: {fileID: 8661141745199774160}
   - component: {fileID: 4277917320081340739}
   m_Layer: 7
-  m_Name: DverP.001
+  m_Name: DverPP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1429,7 +1433,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0.7, y: -0.45, z: 0}
 --- !u!1 &7168593451594818830
 GameObject:
@@ -1547,7 +1551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6205081219439758033}
   - component: {fileID: 4354694805849654503}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Car Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1626,7 +1630,7 @@ GameObject:
   - component: {fileID: 7771725897055508858}
   - component: {fileID: 9140300771256331170}
   - component: {fileID: 8948251124975709515}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1806,11 +1810,31 @@ MonoBehaviour:
   - {fileID: 3025740539809172698}
   - {fileID: 44945661123457735}
   - {fileID: 1695591474691012844}
+  - {fileID: 1684001475897848397}
+  - {fileID: 3913472297543393385}
+  - {fileID: 6023735396425717885}
+  - {fileID: 4093446914199024899}
+  - {fileID: 143317303169241756}
+  - {fileID: 7788313593288447538}
+  - {fileID: 9171463079933011951}
+  - {fileID: 2683595557470215023}
+  - {fileID: 6475080551261415619}
+  - {fileID: 7125665770835090493}
   _bracingList:
   - {fileID: 1530623606080140871}
   - {fileID: 5055549273094112722}
   - {fileID: 2856983822139333033}
   - {fileID: 2093756059286648001}
+  - {fileID: 7764101810054870457}
+  - {fileID: 2487487291298392513}
+  - {fileID: 8661141745199774160}
+  - {fileID: 5441927211669903781}
+  - {fileID: 505125297900400918}
+  - {fileID: 410410040586776368}
+  - {fileID: 1277747483586431645}
+  - {fileID: 8522362025168957835}
+  - {fileID: 393846305701524662}
+  - {fileID: 4780988125844359821}
   _rb: {fileID: 8864332629314089250}
 --- !u!1 &8102961566985249036
 GameObject:
@@ -1879,7 +1903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf034404e2b747038c1e540a7a491465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Sit in car
+  <UiLabel>k__BackingField: "\u0421\u0435\u0441\u0442\u044C \u0432 \u043C\u0430\u0448\u0438\u043D\u0443"
   <IsInteractionBlocked>k__BackingField: 0
   _camera: {fileID: 4354694805849654503}
   _exitTransform: {fileID: 5773917662562902675}
@@ -1894,7 +1918,7 @@ GameObject:
   - component: {fileID: 2487487291298392513}
   - component: {fileID: 2388924652184141260}
   m_Layer: 7
-  m_Name: DverP
+  m_Name: DverPZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1934,7 +1958,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0.7, y: 0.45, z: 0}
 --- !u!1001 &800804527217904120
 PrefabInstance:
@@ -1998,7 +2022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7138299352944750804, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7138299352944750804, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_IsActive
@@ -2062,7 +2086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_IsActive
@@ -2094,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2113,6 +2137,10 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Name
+      value: DverPZ
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
@@ -2122,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4182551394361426624, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4182551394361426624, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_IsActive
@@ -2149,8 +2177,16 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 6521099962691157101, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Name
+      value: DverPP
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521099962691157101, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889208171144469543, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Name
+      value: DverLP
       objectReference: {fileID: 0}
     - target: {fileID: 6889208171144469543, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
@@ -2158,7 +2194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7953606483559150473, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524382806215244555, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Name
+      value: DverLZ
       objectReference: {fileID: 0}
     - target: {fileID: 8524382806215244555, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
@@ -2166,7 +2206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_IsActive
@@ -2277,6 +2317,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6344332809022149975}
   m_SourcePrefab: {fileID: 100100000, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+--- !u!4 &143317303169241756 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8439696041354667164, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566449322708972713 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2456,12 +2501,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0437\u0430\u0434\u043D\u0438\u0439
+    \u0431\u0430\u043C\u043F\u0435\u0440"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 4252812423223892801}
+  _sphereRadius: 0.5
+--- !u!4 &1684001475897848397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2036683739811478453, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1725632881659397844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7138299352944750804, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2683595557470215023 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5898857302486871401, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
   m_PrefabInstance: {fileID: 800804527217904120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3537136795351468856 stripped
@@ -2508,9 +2565,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u0430\u043F\u043E\u0442"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 2457274512928925609}
+  _sphereRadius: 0.5
+--- !u!4 &3913472297543393385 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4804649035807921775, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4093446914199024899 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5488798062235517701, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4483673125482272781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2550,9 +2618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
+    \u041F\u0417"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 7151535380861949866}
+  _sphereRadius: 0.5
 --- !u!1 &5067413270867637547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3652956976038314797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2592,9 +2662,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0431\u0430\u0433\u0430\u0436\u043D\u0438\u043A "
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 151003121260478719}
+  _sphereRadius: 0.5
 --- !u!1 &5864424092645324181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6521099962691157101, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2634,9 +2705,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
+    \u041F\u041F"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 2933439483323627377}
+  _sphereRadius: 0.5
+--- !u!4 &6023735396425717885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6378676057217683845, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6090666791146739167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6889208171144469543, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2676,9 +2754,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
+    \u041B\u041F"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 4824079833906777023}
+  _sphereRadius: 0.7
+--- !u!4 &6475080551261415619 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3260293808941489861, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7112517792878365977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1609550581118008095, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2718,9 +2803,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u043D\u0438\u0439
+    \u0431\u0430\u043C\u043F\u0435\u0440"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 389872260499502112}
+  _sphereRadius: 0.5
+--- !u!4 &7125665770835090493 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7637669812160697797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7559389147968459402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2020604294935127182, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2760,9 +2852,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u043D\u0435\u0435
+    \u0441\u0442\u0435\u043A\u043B\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 3989302598319207038}
+  _sphereRadius: 0.5
+--- !u!4 &7788313593288447538 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1799009331571269686, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8286146095597500217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2807,9 +2906,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0437\u0430\u0434\u043D\u0435\u0435
+    \u0441\u0442\u0435\u043A\u043B\u043E"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 9198964967855151815}
+  _sphereRadius: 0.5
 --- !u!1 &9030200514120332019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8524382806215244555, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2849,9 +2950,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a2719e2694f79bdd91fd87c7f70e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: Grab Component
+  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
+    \u041B\u0417"
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 7814443974825175373}
+  _sphereRadius: 0.7
+--- !u!4 &9171463079933011951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8384174655927053847, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &924370079991195608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2930,7 +3038,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344874181333496819, guid: ab4ea67cd9337c341af0bd7182c60f92, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2969,7 +3077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121091811543088291, guid: ddf4ea2625767fd4bb4153e7e4009ad5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4121091811543137509, guid: ddf4ea2625767fd4bb4153e7e4009ad5, type: 3}
       propertyPath: m_RootOrder
@@ -3108,7 +3216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344874181333496819, guid: ab4ea67cd9337c341af0bd7182c60f92, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3147,7 +3255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4121091811543088291, guid: ddf4ea2625767fd4bb4153e7e4009ad5, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4121091811543137509, guid: ddf4ea2625767fd4bb4153e7e4009ad5, type: 3}
       propertyPath: m_RootOrder

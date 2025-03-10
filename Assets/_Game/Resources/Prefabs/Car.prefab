@@ -2386,7 +2386,7 @@ MonoBehaviour:
   brakeForce: 450
   decelerationMultiplier: 1
   handbrakeDriftMultiplier: 5
-  bodyMassCenter: {x: 0, y: 0, z: 0}
+  bodyMassCenter: {x: 0, y: -0.1, z: 0}
   frontLeftMesh: {fileID: 1011849398579750998}
   frontLeftCollider: {fileID: 5080163321142159737}
   frontLeftTransform: {fileID: 0}
@@ -2420,6 +2420,7 @@ MonoBehaviour:
   _carRigidbody: {fileID: 0}
   MoveDirection: {x: 0, y: 0}
   IsHandbrake: 0
+  _diff: 0
 --- !u!54 &8864332629314089250
 Rigidbody:
   m_ObjectHideFlags: 0

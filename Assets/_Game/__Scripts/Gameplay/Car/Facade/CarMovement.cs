@@ -130,7 +130,6 @@ public class CarMovement : MonoBehaviour
 
     private void Start()
     {
-        _carRigidbody = GetComponent<Rigidbody>();
         _carRigidbody.centerOfMass = bodyMassCenter;
         _fLwheelFriction = new WheelFrictionCurve
         {
@@ -279,6 +278,8 @@ public class CarMovement : MonoBehaviour
         {
             ResetSteeringAngle();
         }
+
+        CheckCollision();
     }
 
     private void CarSpeedUI()
@@ -305,8 +306,8 @@ public class CarMovement : MonoBehaviour
             {
                 if (carEngineSound != null)
                 {
-                    float engineSoundPitch = _initialCarEngineSoundPitch +
-                                             (Mathf.Abs(_carRigidbody.linearVelocity.magnitude) / 25f);
+                    var engineSoundPitch = _initialCarEngineSoundPitch +
+                                           Mathf.Abs(_carRigidbody.linearVelocity.magnitude) / 25f;
                     carEngineSound.pitch = engineSoundPitch;
                 }
 
@@ -710,4 +711,41 @@ public class CarMovement : MonoBehaviour
             _driftingAxis = 0f;
         }
     }
+
+
+    #region CarCrack
+
+    [SerializeField]
+    private float _diff;
+    private float _rbVx;
+    private float _rbVy;
+    private float _rbVz;
+    
+    private void CheckCollision()
+    {
+        var x = _carRigidbody.linearVelocity.x;
+        var y = _carRigidbody.linearVelocity.y;
+        var z = _carRigidbody.linearVelocity.z;
+
+        if (Mathf.Abs(_rbVx - x) > _diff)
+        {
+            Debug.LogWarning("Diff X > " + Mathf.Abs(_rbVx - x));
+        }
+        
+        if (Mathf.Abs(_rbVy - y) > _diff)
+        {
+            Debug.LogWarning("Diff Y > " + Mathf.Abs(_rbVy - y));
+        }
+
+        if (Mathf.Abs(_rbVz - z) > _diff)
+        {
+            Debug.LogWarning("Diff Z > " + Mathf.Abs(_rbVz - z));
+        }
+
+        _rbVx = x;
+        _rbVy = y;
+        _rbVz = z;
+    }
+    
+    #endregion
 }

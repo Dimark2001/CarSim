@@ -1181,7 +1181,7 @@ GameObject:
   - component: {fileID: 6316520595009266271}
   - component: {fileID: 2728610413197573751}
   - component: {fileID: 6411874095426496862}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PlayerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,7 +1304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
+  _raycastDistance: 5
 --- !u!1 &7992141698785262737
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,26 +48,33 @@ public class PlayerTrigger : MonoBehaviour
             {
                 continue;
             }
-            
+
             var screenCenter = new Vector2(0.5f, 0.5f);
             var objectScreenPosition = new Vector2(screenPos.x, screenPos.y);
             var distanceToCenter = Vector2.Distance(screenCenter, objectScreenPosition);
 
-            var ray = _mainCamera.ViewportPointToRay(screenPos);
-            Debug.DrawRay(ray.origin, ray.direction.normalized * _raycastDistance, Color.red);
-            if (!Physics.Raycast(ray, out var hit, _raycastDistance, _layerMask))
+            var rayToObject = _mainCamera.ViewportPointToRay(screenPos);
+            Debug.DrawRay(rayToObject.origin, rayToObject.direction.normalized * _raycastDistance, Color.red);
+
+            var isFirstRaycastHit = Physics.Raycast(rayToObject, out var hitToObject, _raycastDistance, _layerMask);
+            var isFirstRaycastValid = isFirstRaycastHit && hitToObject.collider.gameObject == interact.gameObject;
+
+            var rayFromCamera = new Ray(_mainCamera.transform.position, _mainCamera.transform.forward);
+            Debug.DrawRay(rayFromCamera.origin, rayFromCamera.direction.normalized * _raycastDistance, Color.blue);
+
+            var isSecondRaycastHit = Physics.Raycast(rayFromCamera, out var hitFromCamera, _raycastDistance, _layerMask);
+            var isSecondRaycastValid = isSecondRaycastHit && hitFromCamera.collider.gameObject == interact.gameObject;
+
+            if (!isFirstRaycastValid && !isSecondRaycastValid)
             {
                 continue;
             }
-            if (hit.collider.gameObject != interact.gameObject)
-            {
-                continue;
-            }
+
             if (!(distanceToCenter < closestDistanceToCenter))
             {
                 continue;
             }
-            
+
             closestDistanceToCenter = distanceToCenter;
             CurrentInteractTarget = interact;
         }
@@ -115,7 +122,7 @@ public class PlayerTrigger : MonoBehaviour
         }
 
         _interactList.Remove(interact);
-        
+
         if (_interactList.Count == 0)
         {
             CurrentInteractTarget = null;
@@ -134,7 +141,7 @@ public class PlayerTrigger : MonoBehaviour
         {
             return;
         }
-        
+
         FindClosestInteract();
     }
 }

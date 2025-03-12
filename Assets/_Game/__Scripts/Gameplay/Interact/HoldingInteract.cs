@@ -3,32 +3,48 @@ using UnityEngine;
 
 public class HoldingInteract : BaseInteract
 {
-    private Transform _parent;
-    private Transform _holdingParent;
-    private void Start()
+    private bool _isInteract;
+    protected Rigidbody Rb;
+
+    protected override void Start()
     {
-        _parent = transform.parent;
-        _holdingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
+        Rb = GetComponent<Rigidbody>();
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         transform?.DOKill();
     }
 
     public override void StartInteract()
     {
-        transform.parent = _holdingParent;
-        transform.DOMove(_holdingParent.position, 0.5f);
-        transform.DORotate(_holdingParent.rotation.eulerAngles, 0.5f).OnComplete( () =>  
-        {
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-        });
+        base.StartInteract();
+        _isInteract = true;
+        Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        Rb.isKinematic = true;
     }
 
     public override void StopInteract()
     {
         base.StopInteract();
+        _isInteract = false;
+        Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        Rb.isKinematic = false;
     }
+
+    private void FixedUpdate()
+    {
+        if (!_isInteract)
+        {
+            return;
+        }
+        var holdingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
+        var direction = (holdingParent.position - Rb.position).normalized;
+        var f = Mathf.Lerp(0.1f, 20f, Vector3.Distance(Rb.position, holdingParent.position));
+        if (Vector3.Distance(Rb.position, holdingParent.position) > 0.1f)
+        {
+            Rb.MovePosition(Rb.position + direction * (f * Time.fixedDeltaTime));
+        }
+    }
+
 }

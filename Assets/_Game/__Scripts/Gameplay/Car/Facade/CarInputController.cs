@@ -38,17 +38,17 @@ public class CarInputController : MonoBehaviour, InputSystem.ICarActions
 
     private void FixedUpdate()
     {
-        _cs.Car.Movement.Move();
+        _cs.Facade.Movement.Move();
     }
 
     private void LateUpdate()
     {
-        _cs.Car.Camera.Move(_cameraDirection);
+        _cs.Facade.Camera.Move(_cameraDirection);
     }
 
     public void OnMove(InputAction.CallbackContext c)
     {
-        _cs.Car.Movement.MoveDirection = c.ReadValue<Vector2>();
+        _cs.Facade.Movement.MoveDirection = c.ReadValue<Vector2>();
     }
 
     public void OnLook(InputAction.CallbackContext c)
@@ -60,7 +60,7 @@ public class CarInputController : MonoBehaviour, InputSystem.ICarActions
     {
         if (c.performed)
         {
-            _cs.Car.Seat.Exit();
+            _cs.Facade.Seat.Exit();
         }
     }
 
@@ -68,14 +68,14 @@ public class CarInputController : MonoBehaviour, InputSystem.ICarActions
     {
         if (context.performed)
         {
-            _cs.Car.Movement.Handbrake();
-            _cs.Car.Movement.IsHandbrake = true;
+            _cs.Facade.Movement.Handbrake();
+            _cs.Facade.Movement.IsHandbrake = true;
         }
 
         if (context.canceled)
         {
-            _cs.Car.Movement.RecoverTraction();
-            _cs.Car.Movement.IsHandbrake = false;
+            _cs.Facade.Movement.RecoverTraction();
+            _cs.Facade.Movement.IsHandbrake = false;
         }
     }
 }

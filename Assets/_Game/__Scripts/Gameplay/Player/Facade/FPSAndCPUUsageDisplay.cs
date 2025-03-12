@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class FPSAndCPUUsageDisplay : MonoBehaviour
     private TextMeshProUGUI fpsText;
     private TextMeshProUGUI cpuText;
 
+    [Obsolete("Obsolete")]
     private void Start()
     {
         // Create Canvas
@@ -36,11 +38,11 @@ public class FPSAndCPUUsageDisplay : MonoBehaviour
         {
             // Display FPS
             float fps = accum / frames;
-            fpsText.text = "FPS: " + Mathf.Round(fps).ToString();
+            fpsText.text = "FPS: " + Mathf.Round(fps).ToString(CultureInfo.InvariantCulture);
 
             // Display CPU Usage
             float cpuUsage = GetCPUUsage();
-            cpuText.text = "CPU: " + Mathf.Round(cpuUsage * 100).ToString() + "%";
+            cpuText.text = "CPU: " + Mathf.Round(cpuUsage * 100).ToString(CultureInfo.InvariantCulture) + "%";
 
             timeleft = updateInterval;
             accum = 0.0f;
@@ -48,6 +50,7 @@ public class FPSAndCPUUsageDisplay : MonoBehaviour
         }
     }
 
+    [Obsolete("Obsolete")]
     private Canvas CreateCanvas()
     {
         Canvas canvas = FindObjectOfType<Canvas>();
@@ -76,8 +79,6 @@ public class FPSAndCPUUsageDisplay : MonoBehaviour
 
     private float GetCPUUsage()
     {
-        // This is a simplified method to get CPU usage.
-        // For more accurate results, consider using platform-specific APIs or third-party libraries.
         float cpuUsage = 0.0f;
 #if UNITY_EDITOR || UNITY_STANDALONE_WIN
         System.Diagnostics.Process process = System.Diagnostics.Process.GetCurrentProcess();

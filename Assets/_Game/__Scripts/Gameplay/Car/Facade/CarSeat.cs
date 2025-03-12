@@ -14,7 +14,7 @@ public class CarSeat : BaseInteract
     private CarService _carService;
     private CameraService _cameraService;
 
-    private void Start()
+    protected override void Start()
     {
         _playerService = G.Get<PlayerService>();
         _carService = G.Get<CarService>();
@@ -38,7 +38,7 @@ public class CarSeat : BaseInteract
     {
         _camera.Priority = 10;
        
-        _carService.Car.Input.enabled = false;
+        _carService.Facade.Input.enabled = false;
         _playerService.Player.Movement.Teleport(_exitTransform.position);
         await UniTask.WaitForSeconds(_cameraService.Camera.Brain.DefaultBlend.Time);
         _carService.Disable();

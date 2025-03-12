@@ -13,6 +13,16 @@ public abstract class BaseInteract : MonoBehaviour
     public bool IsInteractionBlocked { get; protected set; }
 
     public bool IsInInteraction { get; protected set; }
+    
+    protected virtual void Start()
+    {
+        
+    }
+
+    protected virtual void OnDestroy()
+    {
+        
+    }
 
     public virtual void StartInteract()
     {

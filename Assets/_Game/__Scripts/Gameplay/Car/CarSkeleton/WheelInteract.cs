@@ -1,118 +1,39 @@
-﻿using System.Linq;
-using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WheelInteract : BaseInteract
+public class WheelInteract : SkeletonInteract
 {
     [SerializeField]
     private WheelCollider _wheel;
-
-    [SerializeField]
-    private MeshCollider _meshCollider;
-
-    [SerializeField]
-    private float _sphereRadius = 0.5f;
-
-    private Rigidbody _rb;
-
-    private Transform _holdingParent;
-    private CarService _carService;
-    private SCState _scState = SCState.Car;
-
-    private void Start()
+    
+    protected override void InteractState()
     {
-        _holdingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
-        _carService = G.Get<CarService>();
-    }
-
-    private void OnDestroy()
-    {
-        transform?.DOKill();
-    }
-
-    public override void StartInteract()
-    {
-        InteractState();
-
-        transform.DOMove(_holdingParent.position, 0.1f);
-    }
-
-    public override void StopInteract()
-    {
-        base.StopInteract();
-        TryAttachToCar();
-    }
-
-    private void TryAttachToCar()
-    {
-        var colliders = Physics.OverlapSphere(transform.position, _sphereRadius, 1 << LayerMask.NameToLayer("Skeleton"))
-            .ToList();
-
-        foreach (var c in colliders)
-        {
-            var q = c.GetComponentInParent<CarSkeleton>();
-            if (q.TryConnectToBracing(transform, c.transform))
-            {
-                CarState();
-                return;
-            }
-        }
-
-        DownState();
-    }
-
-    private void InteractState()
-    {
-        if (_scState == SCState.Car)
-        {
-            _carService.Car.Skeleton.RemoveComponent(transform);
-        }
-
-        _scState = SCState.Interact;
-        if (_rb != null)
-        {
-            Destroy(_rb);
-            _rb = null;
-        }
-
-        transform.parent = _holdingParent;
-
+        base.InteractState();
         _wheel.enabled = false;
-        _meshCollider.isTrigger = true;
     }
-
-    private void CarState()
+    
+    protected override void CarState()
     {
-        _scState = SCState.Car;
-        if (_rb != null)
+        if (Rb != null)
         {
-            Destroy(_rb);
-            _rb = null;
+            Destroy(Rb);
+            Rb = null;
         }
 
+        _meshCollider.isTrigger = true;
+        ScState = SCState.Car;
         _wheel.enabled = true;
-        _meshCollider.isTrigger = true;
     }
-
-    private void DownState()
+    
+    protected override void DownState()
     {
-        if (_scState == SCState.Car)
-        {
-            _carService.Car.Skeleton.RemoveComponent(transform);
-        }
-
-        _scState = SCState.Down;
-        _rb ??= gameObject.AddComponent<Rigidbody>();
-        transform.parent = null;
-
+        base.DownState();
         _wheel.enabled = false;
-        _meshCollider.isTrigger = false;
     }
-
-    private void Reset()
+    
+    protected override void Reset()
     {
+        base.Reset();
         UiLabel = "Grab Wheel";
         _wheel = GetComponent<WheelCollider>();
-        _meshCollider = GetComponent<MeshCollider>();
     }
 }

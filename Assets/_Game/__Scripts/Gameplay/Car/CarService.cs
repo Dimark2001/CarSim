@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CarService : GSingleton
 {
-    public CarFacade Car { get; private set; }
+    public CarFacade Facade { get; private set; }
     
     public override async UniTask Initialize()
     {
@@ -13,7 +13,7 @@ public class CarService : GSingleton
 
     public override async UniTask AfterInitialize()
     {
-        Car.Input.Initialize();
+        Facade.Input.Initialize();
         Disable();
         await UniTask.CompletedTask;
     }
@@ -21,19 +21,19 @@ public class CarService : GSingleton
     private void CreateCar(Vector3 vector3)
     {
         var prefab = GameResources.Prefabs.Car;
-        Car = Object.Instantiate(prefab, vector3, Quaternion.identity);
+        Facade = Object.Instantiate(prefab, vector3, Quaternion.identity);
     }
 
     public void Disable()
     {
-        Car.Input.enabled = false;
-        Car.Camera.ResetPosition();
-        Car.Movement.Brakes();
+        Facade.Input.enabled = false;
+        Facade.Camera.ResetPosition();
+        Facade.Movement.Brakes();
     }
     
     public void Enable()
     {
-        Car.Input.enabled = true;
-        Car.Camera.ResetPosition();
+        Facade.Input.enabled = true;
+        Facade.Camera.ResetPosition();
     }
 }

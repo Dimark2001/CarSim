@@ -5,7 +5,8 @@ using UnityEngine;
 public class CarSkeleton : MonoBehaviour
 {
     [SerializeField]
-    private List<Transform> _sComponents;
+    private List<SkeletonInteract> _sComponents;
+
     [SerializeField]
     private List<Transform> _bracingList;
 
@@ -13,33 +14,33 @@ public class CarSkeleton : MonoBehaviour
     private Rigidbody _rb;
 
     private List<SkeletonComponent> _removedSComponents = new();
-    
-    public void RemoveComponent(Transform c)
+
+    public void RemoveComponent(SkeletonInteract c)
     {
         _sComponents.Remove(c);
         var skeletonComponent = new SkeletonComponent
         {
-            Transform = c,
-            Parent = c.parent,
+            Transform = c.transform,
+            Parent = c.transform.parent,
         };
 
         _removedSComponents.Add(skeletonComponent);
         UpdateCar();
     }
 
-    public bool TryConnectToBracing(Transform component, Transform bracing)
+    public bool TryConnectToBracing(SkeletonInteract component, Transform bracing)
     {
         if (component.name != bracing.name)
         {
             return false;
         }
-        
-        _sComponents.Add(component);
-        var comp = _removedSComponents.Find(w => w.Transform == component);
 
-        component.SetParent(comp.Parent, true);
-        component.SetLocalPositionAndRotation(bracing.localPosition, bracing.localRotation);
-        
+        _sComponents.Add(component);
+        var comp = _removedSComponents.Find(w => w.Transform == component.transform);
+
+        component.transform.SetParent(comp.Parent, true);
+        component.transform.SetLocalPositionAndRotation(bracing.localPosition, bracing.localRotation);
+
         _removedSComponents.Remove(comp);
         UpdateCar();
         return true;

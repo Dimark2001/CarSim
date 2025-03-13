@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerInteraction : MonoBehaviour
 {
     [field: SerializeField]
     public Transform HoldingParentTransform { get; private set; }
+    public BaseInteract CurrentInteractObject;
 
     private PlayerInputController _playerInputController;
-    private BaseInteract _currentInteractObject;
     
     private bool _isInteracting;
 
@@ -20,7 +21,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (_isInteracting)
         {
-            _currentInteractObject?.StopInteract();
+            CurrentInteractObject?.StopInteract();
+            CurrentInteractObject = null;
         }
     }
 
@@ -32,19 +34,13 @@ public class PlayerInteraction : MonoBehaviour
             return false;
         }
 
-        _currentInteractObject = interact;
-        if (_currentInteractObject.IsInteractionBlocked)
+        CurrentInteractObject = interact;
+        if (CurrentInteractObject.IsInteractionBlocked)
         {
             return false;
         }
 
-        _currentInteractObject.StartInteract();
+        CurrentInteractObject.StartInteract();
         return true;
-    }
-
-    public bool RotateObject(Vector2 mouseDelta)
-    {
-        _currentInteractObject?.RotateObject(mouseDelta);
-        return _currentInteractObject;
     }
 }

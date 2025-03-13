@@ -45,12 +45,16 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 
     private void LateUpdate()
     {
-        
         _ps.Player.Camera.Move(_cameraDirection);
-        
+
         if (_isRotate)
         {
-            if (!_ps.Player.Interaction.RotateObject(_cameraDirection))
+            var baseInteract = _ps.Player.Interaction.CurrentInteractObject;
+            if (baseInteract)
+            {
+                baseInteract.RotateObject(_cameraDirection);
+            }
+            else
             {
                 _isRotate = false;
             }
@@ -116,10 +120,7 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 
     public void OnRotate(InputAction.CallbackContext context)
     {
-        if (_ps.Player.Interaction.HoldingParentTransform == null)
-            return;
-
-        if (context.performed)
+        if (_ps.Player.Interaction.CurrentInteractObject != null && context.performed)
         {
             _ps.CameraState(false);
             _ps.MovementState(false);

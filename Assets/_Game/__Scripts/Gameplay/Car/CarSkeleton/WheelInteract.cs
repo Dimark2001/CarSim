@@ -61,7 +61,7 @@ public class WheelInteract : SkeletonInteract
 
                 Hp -= speed;
 
-                Debug.Log("CheckWheelCollisions: " + speed);
+                Debug.Log("Wheel");
                 if (Hp <= 0)
                 {
                     CarService.Facade.Skeleton.RemoveComponent(this);

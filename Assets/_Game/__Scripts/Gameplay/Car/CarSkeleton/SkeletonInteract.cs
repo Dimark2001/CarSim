@@ -153,6 +153,7 @@ public class SkeletonInteract : BaseInteract
                 Hp -= speed;
             }
 
+            Debug.Log("Skeleton");
             if (Hp <= 0)
             {
                 CarService.Facade.Skeleton.RemoveComponent(this);

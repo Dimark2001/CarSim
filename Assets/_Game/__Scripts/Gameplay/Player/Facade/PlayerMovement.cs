@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         var z = Mathf.Clamp(linearVelocity.z, -90, 7);
 
         _rigidbody.linearVelocity = new Vector3(x, y, z);
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     public void Run(bool isRun)

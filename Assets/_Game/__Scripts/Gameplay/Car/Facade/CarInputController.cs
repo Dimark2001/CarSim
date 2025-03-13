@@ -32,6 +32,8 @@ public class CarInputController : MonoBehaviour, InputSystem.ICarActions
 
     private void OnDisable()
     {
+        _cs.Facade.Movement.MoveDirection = Vector2.zero;
+        _cs.Facade.Movement.IsHandbrake = false;
         _carInput?.Car.RemoveCallbacks(this);
         _carInput?.Disable();
     }

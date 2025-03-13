@@ -85,13 +85,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E
-    \u041F\u041F"
+  <UiLabel>k__BackingField: Grab Wheel P P
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 4404088889480565733}
   _sphereRadius: 0.5
   _maxHp: 10
-  _wheel: {fileID: 4379152949551804333}
+  Hp: 10
+  <WheelCollider>k__BackingField: {fileID: 4379152949551804333}
+  <Visual>k__BackingField: {fileID: 3309158895735202617}
+  <Bracing>k__BackingField: {fileID: 2856983822139333033}
 --- !u!64 &4404088889480565733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -399,13 +401,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E
-    \u041F\u0417"
+  <UiLabel>k__BackingField: Grab Wheel P Z
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 8250631807094433717}
   _sphereRadius: 0.5
   _maxHp: 10
-  _wheel: {fileID: 995552580542903760}
+  Hp: 10
+  <WheelCollider>k__BackingField: {fileID: 995552580542903760}
+  <Visual>k__BackingField: {fileID: 212149211876137749}
+  <Bracing>k__BackingField: {fileID: 2093756059286648001}
 --- !u!64 &8250631807094433717
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -541,13 +545,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4054540699199189944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.7639722, y: -0.5199232, z: 1.0908496}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4711256426953561123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!135 &7798065586830739737
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -738,13 +742,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E
-    \u041B\u041F"
+  <UiLabel>k__BackingField: Grab Wheel L P
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 20861955512587774}
   _sphereRadius: 0.5
   _maxHp: 10
-  _wheel: {fileID: 5080163321142159737}
+  Hp: 10
+  <WheelCollider>k__BackingField: {fileID: 5080163321142159737}
+  <Visual>k__BackingField: {fileID: 7399669403935763126}
+  <Bracing>k__BackingField: {fileID: 1530623606080140871}
 --- !u!64 &20861955512587774
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -887,13 +893,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7607d20e79f7474f8fb297686da51d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u043E\u043B\u0435\u0441\u043E
-    \u041B\u0417"
+  <UiLabel>k__BackingField: Grab Wheel L Z
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 1576593615305860819}
   _sphereRadius: 0.5
   _maxHp: 10
-  _wheel: {fileID: 765160620635920387}
+  Hp: 10
+  <WheelCollider>k__BackingField: {fileID: 765160620635920387}
+  <Visual>k__BackingField: {fileID: 5322258939906850534}
+  <Bracing>k__BackingField: {fileID: 5055549273094112722}
 --- !u!64 &1576593615305860819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1521,13 +1529,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7376133735015841601}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.7639722, y: -0.5199232, z: -1.5989174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4711256426953561123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!135 &4261026414379682336
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2046,6 +2054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7700958331940145044, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1556440470156416797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
     - target: {fileID: -7227234243208514860, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -2096,11 +2108,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2108,12 +2120,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -156798783135175784, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -89132227327283797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1556440470156416797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
     - target: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -2128,11 +2144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 715144267275211501, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 715144267275211501, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 715144267275211501, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2140,7 +2156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 715144267275211501, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Name
@@ -2152,11 +2168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2164,7 +2180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Name
@@ -2190,13 +2206,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 4689148489631956260, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1556440470156416797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
     - target: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2204,8 +2224,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5846401527488555624, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1556440470156416797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
     - target: {fileID: 6521099962691157101, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
       propertyPath: m_Name
       value: DverPP
@@ -2347,6 +2371,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6344332809022149975}
   m_SourcePrefab: {fileID: 100100000, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+--- !u!4 &212149211876137749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 715144267275211501, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566449322708972713 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2409,6 +2438,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _carRigidbody: {fileID: 8864332629314089250}
+  MoveDirection: {x: 0, y: 0}
+  IsHandbrake: 0
   _maxSpeed: 140
   _maxReverseSpeed: 45
   _accelerationMultiplier: 7
@@ -2417,32 +2448,19 @@ MonoBehaviour:
   _brakeForce: 450
   _decelerationMultiplier: 1
   _handbrakeDriftMultiplier: 5
-  _bodyMassCenter: {x: 0, y: -0.2, z: 0}
-  frontLeftMesh: {fileID: 1011849398579750998}
-  frontLeftCollider: {fileID: 5080163321142159737}
-  frontLeftTransform: {fileID: 0}
-  frontRightMesh: {fileID: 3537136795351468856}
-  frontRightCollider: {fileID: 4379152949551804333}
-  frontRightTransform: {fileID: 0}
-  rearLeftMesh: {fileID: 1725632881659397844}
-  rearLeftCollider: {fileID: 765160620635920387}
-  rearLeftTransform: {fileID: 0}
-  rearRightMesh: {fileID: 8286146095597500217}
-  rearRightCollider: {fileID: 995552580542903760}
-  rearRightTransform: {fileID: 0}
+  _bodyMassCenter: {x: 0, y: -0.5, z: 0}
+  _wheelColliderLp: {fileID: 5080163321142159737}
+  _wheelColliderPp: {fileID: 4379152949551804333}
+  _wheelColliderLz: {fileID: 765160620635920387}
+  _wheelColliderPz: {fileID: 995552580542903760}
   _useEffects: 0
-  RLWParticleSystem: {fileID: 2132086627087248069}
-  RRWParticleSystem: {fileID: 7490761171918471226}
-  RLWTireSkid: {fileID: 7582436245491274792}
-  RRWTireSkid: {fileID: 2721112119114382339}
+  _rlwParticleSystem: {fileID: 2132086627087248069}
+  _rrwParticleSystem: {fileID: 7490761171918471226}
+  _rlwTireSkid: {fileID: 7582436245491274792}
+  _rrwTireSkid: {fileID: 2721112119114382339}
   _useSounds: 0
-  carEngineSound: {fileID: 0}
-  tireScreechSound: {fileID: 0}
-  carSpeed: 0
-  isDrifting: 0
-  isTractionLocked: 0
-  MoveDirection: {x: 0, y: 0}
-  IsHandbrake: 0
+  _carEngineSound: {fileID: 0}
+  _tireScreechSound: {fileID: 0}
 --- !u!114 &3758153441254506596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,11 +2491,6 @@ MonoBehaviour:
 --- !u!4 &907402778587196947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
-  m_PrefabInstance: {fileID: 800804527217904120}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1011849398579750998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 366982704355402158, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
   m_PrefabInstance: {fileID: 800804527217904120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1202095817068739372 stripped
@@ -2525,14 +2538,10 @@ MonoBehaviour:
   _meshCollider: {fileID: 4252812423223892801}
   _sphereRadius: 0.5
   _maxHp: 10
---- !u!1 &1725632881659397844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7138299352944750804, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
-  m_PrefabInstance: {fileID: 800804527217904120}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3537136795351468856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4182551394361426624, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  Hp: 10
+--- !u!4 &3309158895735202617 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
   m_PrefabInstance: {fileID: 800804527217904120}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3745671065547058219 stripped
@@ -2579,6 +2588,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 2457274512928925609}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
 --- !u!1 &4483673125482272781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2624,6 +2634,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 7151535380861949866}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
 --- !u!1 &5067413270867637547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3652956976038314797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2668,6 +2679,12 @@ MonoBehaviour:
   _meshCollider: {fileID: 151003121260478719}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
+--- !u!4 &5322258939906850534 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5864424092645324181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6521099962691157101, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2713,6 +2730,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 2933439483323627377}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
 --- !u!1 &6090666791146739167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6889208171144469543, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2758,6 +2776,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 4824079833906777023}
   _sphereRadius: 0.7
   _maxHp: 10
+  Hp: 10
 --- !u!1 &7112517792878365977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1609550581118008095, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2803,6 +2822,12 @@ MonoBehaviour:
   _meshCollider: {fileID: 389872260499502112}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
+--- !u!4 &7399669403935763126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
+  m_PrefabInstance: {fileID: 800804527217904120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7559389147968459402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2020604294935127182, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2848,11 +2873,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 3989302598319207038}
   _sphereRadius: 0.5
   _maxHp: 10
---- !u!1 &8286146095597500217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8782945617728847553, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
-  m_PrefabInstance: {fileID: 800804527217904120}
-  m_PrefabAsset: {fileID: 0}
+  Hp: 10
 --- !u!1 &8561333201738048096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -156798783135175784, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2898,6 +2919,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 9198964967855151815}
   _sphereRadius: 0.5
   _maxHp: 10
+  Hp: 10
 --- !u!1 &9030200514120332019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8524382806215244555, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2943,6 +2965,7 @@ MonoBehaviour:
   _meshCollider: {fileID: 7814443974825175373}
   _sphereRadius: 0.7
   _maxHp: 10
+  Hp: 10
 --- !u!1001 &924370079991195608
 PrefabInstance:
   m_ObjectHideFlags: 0

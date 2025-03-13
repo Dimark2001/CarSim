@@ -18,6 +18,7 @@ public class SkeletonInteract : BaseInteract
     [SerializeField]
     protected float _maxHp = 10f;
 
+    [SerializeField]
     protected float Hp = 10f;
 
     protected override void Start()
@@ -148,12 +149,12 @@ public class SkeletonInteract : BaseInteract
                     relativeVelocity = CarService.Facade.Movement._carRigidbody.linearVelocity - Rb.linearVelocity;
                 }
 
-                var speed = relativeVelocity.magnitude;
+                var speed = Mathf.Abs(relativeVelocity.magnitude);
 
                 Hp -= speed;
             }
 
-            Debug.Log("Skeleton");
+            //Debug.Log(Hp);
             if (Hp <= 0)
             {
                 CarService.Facade.Skeleton.RemoveComponent(this);
@@ -164,7 +165,8 @@ public class SkeletonInteract : BaseInteract
 
     protected virtual void Reset()
     {
-        UiLabel = $"Grab {gameObject.name}";
+        if(UiLabel == "")
+            UiLabel = $"Grab {gameObject.name}";
         _meshCollider = GetComponent<MeshCollider>();
     }
 }

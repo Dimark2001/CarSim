@@ -13,15 +13,16 @@ public abstract class BaseInteract : MonoBehaviour
     public bool IsInteractionBlocked { get; protected set; }
 
     public bool IsInInteraction { get; protected set; }
-    
+
+    protected float RotationSpeed = 0.2f;
+    protected Rigidbody Rb;
+
     protected virtual void Start()
     {
-        
     }
 
     protected virtual void OnDestroy()
     {
-        
     }
 
     public virtual void StartInteract()
@@ -34,6 +35,12 @@ public abstract class BaseInteract : MonoBehaviour
     {
         OnStopInteractCall?.Invoke();
         IsInInteraction = false;
+    }
+
+    public void RotateObject(Vector2 mouseDelta)
+    {
+        var torque = new Vector3(mouseDelta.y, -mouseDelta.x, 0) * RotationSpeed;
+        Rb.MoveRotation(Rb.rotation * Quaternion.Euler(new Vector3(torque.x, 0, torque.y)));
     }
 
     public void UnBlockInteraction()

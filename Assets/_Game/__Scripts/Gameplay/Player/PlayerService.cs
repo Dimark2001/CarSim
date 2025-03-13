@@ -28,7 +28,9 @@ public class PlayerService : GSingleton
         Player.Input.enabled = false;
         Player.Trigger.Disable();
         Player.Camera.ResetPosition();
+        CameraState(false);
         Player.Movement.ResetPosition();
+        MovementState(false);
         Player.Visual.Hide();
     }
 
@@ -36,9 +38,21 @@ public class PlayerService : GSingleton
     {
         Player.Input.enabled = true;
         Player.Trigger.enabled = true;
+        CameraState(true);
         Player.Camera.ResetPosition();
+        MovementState(true);
         Player.Movement.ResetPosition();
         Player.Visual.Show();
+    }
+
+    public void CameraState(bool isActive)
+    {
+        Player.Camera.enabled = isActive;
+    }
+    
+    public void MovementState(bool isActive)
+    {
+        Player.Movement.enabled = isActive;
     }
 }
 

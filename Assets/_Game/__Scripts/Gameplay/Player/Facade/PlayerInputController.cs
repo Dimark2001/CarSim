@@ -10,6 +10,8 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 
     private bool _isInitialize;
 
+    private bool _isRotate;
+
     public void Initialize()
     {
         _isInitialize = true;
@@ -18,13 +20,14 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
         _inputSystem.Enable();
         _inputSystem.Player.SetCallbacks(this);
     }
-    
+
     public void OnEnable()
     {
         if (!_isInitialize)
         {
             return;
         }
+
         _inputSystem.Enable();
         _inputSystem.Player.SetCallbacks(this);
     }
@@ -42,7 +45,16 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 
     private void LateUpdate()
     {
+        
         _ps.Player.Camera.Move(_cameraDirection);
+        
+        if (_isRotate)
+        {
+            if (!_ps.Player.Interaction.RotateObject(_cameraDirection))
+            {
+                _isRotate = false;
+            }
+        }
     }
 
     public void OnMove(InputAction.CallbackContext c)
@@ -99,6 +111,26 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
         if (c.canceled)
         {
             _ps.Player.Movement.Run(false);
+        }
+    }
+
+    public void OnRotate(InputAction.CallbackContext context)
+    {
+        if (_ps.Player.Interaction.HoldingParentTransform == null)
+            return;
+
+        if (context.performed)
+        {
+            _ps.CameraState(false);
+            _ps.MovementState(false);
+            _isRotate = true;
+        }
+
+        if (context.canceled)
+        {
+            _ps.CameraState(true);
+            _ps.MovementState(true);
+            _isRotate = false;
         }
     }
 }

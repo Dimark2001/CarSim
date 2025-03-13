@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
+        if(!enabled)
+            return;
+        
         var targetMovingSpeed = IsRunning ? _runSpeed : _speed;
 
         if (SpeedOverrides.Count > 0)

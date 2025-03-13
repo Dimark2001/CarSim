@@ -41,4 +41,10 @@ public class PlayerInteraction : MonoBehaviour
         _currentInteractObject.StartInteract();
         return true;
     }
+
+    public bool RotateObject(Vector2 mouseDelta)
+    {
+        _currentInteractObject?.RotateObject(mouseDelta);
+        return _currentInteractObject;
+    }
 }

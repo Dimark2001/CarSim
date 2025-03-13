@@ -4,7 +4,6 @@ using UnityEngine;
 public class HoldingInteract : BaseInteract
 {
     private bool _isInteract;
-    protected Rigidbody Rb;
 
     protected override void Start()
     {
@@ -38,6 +37,7 @@ public class HoldingInteract : BaseInteract
         {
             return;
         }
+        
         var holdingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
         var direction = (holdingParent.position - Rb.position).normalized;
         var f = Mathf.Lerp(0.1f, 20f, Vector3.Distance(Rb.position, holdingParent.position));
@@ -46,5 +46,4 @@ public class HoldingInteract : BaseInteract
             Rb.MovePosition(Rb.position + direction * (f * Time.fixedDeltaTime));
         }
     }
-
 }

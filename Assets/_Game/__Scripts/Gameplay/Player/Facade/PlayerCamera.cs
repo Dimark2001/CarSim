@@ -16,6 +16,9 @@ public class PlayerCamera : MonoBehaviour
 
     public void Move(Vector2 mouseDelta)
     {
+        if(!enabled)
+            return;
+        
         var rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * _sensitivity);
         _frameVelocity = Vector2.Lerp(_frameVelocity, rawFrameVelocity, 1 / _smoothing);
         _velocity += _frameVelocity;

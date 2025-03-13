@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,25 +11,25 @@ public class SkeletonInteract : BaseInteract
     [SerializeField]
     protected float _sphereRadius = 0.5f;
 
-    protected Rigidbody Rb;
-
     protected Transform HoldingParent;
     protected CarService CarService;
     protected SCState ScState = SCState.Car;
+
     [SerializeField]
-    private float _maxHp = 10f;
-    private float _hp = 10f;
+    protected float _maxHp = 10f;
+
+    protected float Hp = 10f;
 
     protected override void Start()
     {
         HoldingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
         CarService = G.Get<CarService>();
-        
+
         Rb ??= gameObject.AddComponent<Rigidbody>();
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         Rb.isKinematic = true;
         CarState();
-        _hp = _maxHp;
+        Hp = _maxHp;
     }
 
     protected override void OnDestroy()
@@ -71,7 +72,7 @@ public class SkeletonInteract : BaseInteract
         DownState();
     }
 
-    protected virtual void InteractState()
+    protected virtual async void InteractState()
     {
         if (ScState == SCState.Car)
         {
@@ -84,15 +85,17 @@ public class SkeletonInteract : BaseInteract
 
         transform.parent = null;
 
-        _meshCollider.isTrigger = true;
         ScState = SCState.Interact;
+        _meshCollider.isTrigger = true;
+        await UniTask.WaitForSeconds(0.1f);
+        _meshCollider.isTrigger = false;
     }
 
     protected virtual void CarState()
     {
         _meshCollider.isTrigger = true;
         ScState = SCState.Car;
-        _hp = _maxHp;
+        Hp = _maxHp;
     }
 
     protected virtual void DownState()
@@ -111,13 +114,8 @@ public class SkeletonInteract : BaseInteract
         ScState = SCState.Down;
     }
 
-    protected virtual void Reset()
-    {
-        UiLabel = $"Grab {gameObject.name}";
-        _meshCollider = GetComponent<MeshCollider>();
-    }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (ScState == SCState.Interact)
         {
@@ -127,25 +125,21 @@ public class SkeletonInteract : BaseInteract
             {
                 Rb.MovePosition(Rb.position + direction * (f * Time.fixedDeltaTime));
             }
-            
-            if (Vector3.Distance(Rb.position, HoldingParent.position) > 0.01f)
-            {
-                _meshCollider.isTrigger = false;
-            }
         }
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (ScState != SCState.Car)
         {
             return;
         }
-        
-        if (other.gameObject.layer == LayerMask.NameToLayer("Environment"))
+
+        var layer = LayerHelper.NamesToLayerMask(new[] { "Environment", "Interactable", });
+        if (layer.Contains(other.gameObject.layer))
         {
             var otherRb = other.GetComponent<Rigidbody>();
-        
+
             if (otherRb != null && !otherRb.isKinematic && Rb != null)
             {
                 var relativeVelocity = otherRb.linearVelocity - Rb.linearVelocity;
@@ -153,16 +147,23 @@ public class SkeletonInteract : BaseInteract
                 {
                     relativeVelocity = CarService.Facade.Movement._carRigidbody.linearVelocity - Rb.linearVelocity;
                 }
+
                 var speed = relativeVelocity.magnitude;
 
-                _hp -= speed;
+                Hp -= speed;
             }
 
-            if (_hp <= 0)
+            if (Hp <= 0)
             {
                 CarService.Facade.Skeleton.RemoveComponent(this);
                 DownState();
             }
         }
+    }
+
+    protected virtual void Reset()
+    {
+        UiLabel = $"Grab {gameObject.name}";
+        _meshCollider = GetComponent<MeshCollider>();
     }
 }

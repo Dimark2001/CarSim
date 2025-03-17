@@ -20,7 +20,7 @@ public class HoldingInteract : BaseInteract
         base.StartInteract();
         _isInteract = true;
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        Rb.isKinematic = true;
+        Rb.useGravity = false;
     }
 
     public override void StopInteract()
@@ -28,10 +28,10 @@ public class HoldingInteract : BaseInteract
         base.StopInteract();
         _isInteract = false;
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        Rb.isKinematic = false;
+        Rb.useGravity = true;
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (!_isInteract)
         {
@@ -45,5 +45,8 @@ public class HoldingInteract : BaseInteract
         {
             Rb.MovePosition(Rb.position + direction * (f * Time.fixedDeltaTime));
         }
+        Rb.angularVelocity = Vector3.zero;
+        Rb.linearVelocity = Vector3.zero;
+        Rb.linearDamping = 0f;
     }
 }

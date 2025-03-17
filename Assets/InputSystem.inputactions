@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseScroll",
+                    "type": "Value",
+                    "id": "69688222-d03b-4165-903a-3c1fec597e79",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -353,6 +362,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84cd566a-85dd-4f8e-8b8f-aaafc2bb17dc",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MouseScroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

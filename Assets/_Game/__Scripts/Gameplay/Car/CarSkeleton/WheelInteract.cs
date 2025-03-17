@@ -22,7 +22,8 @@ public class WheelInteract : SkeletonInteract
 
         Rb ??= gameObject.AddComponent<Rigidbody>();
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        Rb.isKinematic = true;
+        Rb.isKinematic = false;
+        Rb.useGravity = false;
 
         transform.parent = null;
 
@@ -40,7 +41,7 @@ public class WheelInteract : SkeletonInteract
             Destroy(Rb);
             Rb = null;
         }
-
+        
         _meshCollider.isTrigger = true;
         ScState = SCState.Car;
         WheelCollider.enabled = true;
@@ -57,6 +58,7 @@ public class WheelInteract : SkeletonInteract
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         transform.parent = null;
         Rb.isKinematic = false;
+        Rb.useGravity = true;
 
         _meshCollider.isTrigger = false;
         ScState = SCState.Down;
@@ -131,9 +133,10 @@ public class WheelInteract : SkeletonInteract
     private void UpdateWheelVisual()
     {
         Quaternion wheelRotation;
+        var pos = transform.position;
         if (WheelCollider.enabled)
         {
-            WheelCollider.GetWorldPose(out _, out var quaternion);
+            WheelCollider.GetWorldPose(out pos, out var quaternion);
             wheelRotation = Quaternion.Euler(quaternion.eulerAngles + new Vector3(0, Bracing.transform.rotation.eulerAngles.y, 0));
         }
         else
@@ -141,6 +144,6 @@ public class WheelInteract : SkeletonInteract
             wheelRotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 0));
         }
 
-        Visual.SetPositionAndRotation(transform.position, wheelRotation);
+        Visual.SetPositionAndRotation(pos, wheelRotation);
     }
 }

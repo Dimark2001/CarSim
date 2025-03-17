@@ -134,4 +134,9 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
             _isRotate = false;
         }
     }
+
+    public void OnMouseScroll(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.ReadValue<float>());
+    }
 }

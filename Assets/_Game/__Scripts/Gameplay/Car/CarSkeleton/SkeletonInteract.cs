@@ -18,7 +18,6 @@ public class SkeletonInteract : BaseInteract
     [SerializeField]
     protected float _maxHp = 10f;
 
-    [SerializeField]
     protected float Hp = 10f;
 
     protected override void Start()
@@ -27,8 +26,10 @@ public class SkeletonInteract : BaseInteract
         CarService = G.Get<CarService>();
 
         Rb ??= gameObject.AddComponent<Rigidbody>();
+        Rb.interpolation = RigidbodyInterpolation.Interpolate;
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         Rb.isKinematic = true;
+        Rb.useGravity = false;
         CarState();
         Hp = _maxHp;
     }
@@ -82,7 +83,8 @@ public class SkeletonInteract : BaseInteract
 
         Rb ??= gameObject.AddComponent<Rigidbody>();
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        Rb.isKinematic = true;
+        Rb.isKinematic = false;
+        Rb.useGravity = false;
 
         transform.parent = null;
 
@@ -97,6 +99,8 @@ public class SkeletonInteract : BaseInteract
         _meshCollider.isTrigger = true;
         ScState = SCState.Car;
         Hp = _maxHp;
+        Rb.isKinematic = true;
+        Rb.useGravity = true;
     }
 
     protected virtual void DownState()
@@ -110,11 +114,11 @@ public class SkeletonInteract : BaseInteract
         Rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         transform.parent = null;
         Rb.isKinematic = false;
+        Rb.useGravity = true;
 
         _meshCollider.isTrigger = false;
         ScState = SCState.Down;
     }
-
 
     protected virtual void FixedUpdate()
     {
@@ -126,6 +130,19 @@ public class SkeletonInteract : BaseInteract
             {
                 Rb.MovePosition(Rb.position + direction * (f * Time.fixedDeltaTime));
             }
+
+            Rb.angularVelocity = Vector3.zero;
+            Rb.linearVelocity = Vector3.zero;
+            Rb.linearDamping = 0f;
+        }
+
+        if (Rb && !Rb.isKinematic)
+        {
+            var v= Rb.linearVelocity;
+            v.x = Mathf.Clamp(v.x, -10f, 10f);
+            v.y = Mathf.Clamp(v.y, -10f, 10f);
+            v.z = Mathf.Clamp(v.z, -10f, 10f);
+            Rb.linearVelocity = v;
         }
     }
 
@@ -165,7 +182,7 @@ public class SkeletonInteract : BaseInteract
 
     protected virtual void Reset()
     {
-        if(UiLabel == "")
+        if (UiLabel == "")
             UiLabel = $"Grab {gameObject.name}";
         _meshCollider = GetComponent<MeshCollider>();
     }

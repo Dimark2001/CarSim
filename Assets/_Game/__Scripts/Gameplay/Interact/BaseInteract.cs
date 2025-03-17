@@ -24,7 +24,7 @@ public abstract class BaseInteract : MonoBehaviour
     protected virtual void OnDestroy()
     {
     }
-
+    
     public virtual void StartInteract()
     {
         OnStartInteractCall?.Invoke();
@@ -36,7 +36,7 @@ public abstract class BaseInteract : MonoBehaviour
         OnStopInteractCall?.Invoke();
         IsInInteraction = false;
     }
-
+    
     public void RotateObject(Vector2 mouseDelta)
     {
         var torque = new Vector3(mouseDelta.y, -mouseDelta.x, 0) * RotationSpeed;

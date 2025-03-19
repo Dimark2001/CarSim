@@ -4,12 +4,13 @@ using UnityEngine.InputSystem;
 public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 {
     private PlayerService _ps;
+    private InputSystem _inputSystem;
+    
     private Vector2 _moveDirection;
     private Vector2 _cameraDirection;
-    private InputSystem _inputSystem;
+    private float _scrollValue;
 
     private bool _isInitialize;
-
     private bool _isRotate;
 
     public void Initialize()
@@ -137,6 +138,6 @@ public class PlayerInputController : MonoBehaviour, InputSystem.IPlayerActions
 
     public void OnMouseScroll(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<float>());
+        _scrollValue = context.ReadValue<Vector2>().y;
     }
 }

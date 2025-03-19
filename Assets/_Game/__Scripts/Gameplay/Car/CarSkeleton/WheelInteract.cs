@@ -87,7 +87,9 @@ public class WheelInteract : SkeletonInteract
     {
         base.Reset();
         if (UiLabel == "")
+        {
             UiLabel = "Grab Wheel";
+        }
         WheelCollider = GetComponent<WheelCollider>();
     }
 
@@ -118,10 +120,9 @@ public class WheelInteract : SkeletonInteract
 
                 var speed = Mathf.Abs(relativeVelocity.magnitude);
 
-                Hp -= speed;
+                Stats.Damage(speed);
 
-                //Debug.Log(Hp);
-                if (Hp <= 0)
+                if (Stats.isAlive == false)
                 {
                     CarService.Facade.Skeleton.RemoveWheel(this);
                     DownState();

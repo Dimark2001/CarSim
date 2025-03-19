@@ -89,7 +89,7 @@ MonoBehaviour:
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 4404088889480565733}
   _sphereRadius: 0.5
-  _maxHp: 1000
+  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 4379152949551804333}
   <Visual>k__BackingField: {fileID: 3309158895735202617}
   <Bracing>k__BackingField: {fileID: 2856983822139333033}
@@ -404,7 +404,7 @@ MonoBehaviour:
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 8250631807094433717}
   _sphereRadius: 0.5
-  _maxHp: 1000
+  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 995552580542903760}
   <Visual>k__BackingField: {fileID: 212149211876137749}
   <Bracing>k__BackingField: {fileID: 2093756059286648001}
@@ -744,7 +744,7 @@ MonoBehaviour:
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 20861955512587774}
   _sphereRadius: 0.5
-  _maxHp: 1000
+  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 5080163321142159737}
   <Visual>k__BackingField: {fileID: 7399669403935763126}
   <Bracing>k__BackingField: {fileID: 1530623606080140871}
@@ -894,7 +894,7 @@ MonoBehaviour:
   <IsInteractionBlocked>k__BackingField: 0
   _meshCollider: {fileID: 1576593615305860819}
   _sphereRadius: 0.5
-  _maxHp: 1000
+  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 765160620635920387}
   <Visual>k__BackingField: {fileID: 5322258939906850534}
   <Bracing>k__BackingField: {fileID: 5055549273094112722}

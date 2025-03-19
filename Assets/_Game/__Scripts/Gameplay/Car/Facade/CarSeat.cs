@@ -40,6 +40,7 @@ public class CarSeat : BaseInteract
        
         _carService.Facade.Input.enabled = false;
         _playerService.Player.Movement.Teleport(_exitTransform.position);
+        _playerService.Player.Interaction.CurrentInteractObject = null;
         await UniTask.WaitForSeconds(_cameraService.Camera.Brain.DefaultBlend.Time);
         _carService.Disable();
         

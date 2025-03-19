@@ -1,10 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
 public class SkeletonInteract : BaseInteract
 {
+    [field: SerializeField]
+    public SkeletonStats Stats { get; private set; }
+    
     [SerializeField]
     protected MeshCollider _meshCollider;
 
@@ -15,10 +19,6 @@ public class SkeletonInteract : BaseInteract
     protected CarService CarService;
     protected SCState ScState = SCState.Car;
 
-    [SerializeField]
-    protected float _maxHp = 10f;
-
-    protected float Hp = 10f;
 
     protected override void Start()
     {
@@ -31,7 +31,6 @@ public class SkeletonInteract : BaseInteract
         Rb.isKinematic = true;
         Rb.useGravity = false;
         CarState();
-        Hp = _maxHp;
     }
 
     protected override void OnDestroy()
@@ -98,7 +97,7 @@ public class SkeletonInteract : BaseInteract
     {
         _meshCollider.isTrigger = true;
         ScState = SCState.Car;
-        Hp = _maxHp;
+        Stats.ResetHp();
         Rb.isKinematic = true;
         Rb.useGravity = true;
     }
@@ -138,7 +137,7 @@ public class SkeletonInteract : BaseInteract
 
         if (Rb && !Rb.isKinematic)
         {
-            var v= Rb.linearVelocity;
+            var v = Rb.linearVelocity;
             v.x = Mathf.Clamp(v.x, -10f, 10f);
             v.y = Mathf.Clamp(v.y, -10f, 10f);
             v.z = Mathf.Clamp(v.z, -10f, 10f);
@@ -168,11 +167,10 @@ public class SkeletonInteract : BaseInteract
 
                 var speed = Mathf.Abs(relativeVelocity.magnitude);
 
-                Hp -= speed;
+                Stats.Damage(speed);
             }
 
-            //Debug.Log(Hp);
-            if (Hp <= 0)
+            if (Stats.isAlive == false)
             {
                 CarService.Facade.Skeleton.RemoveComponent(this);
                 DownState();
@@ -185,5 +183,20 @@ public class SkeletonInteract : BaseInteract
         if (UiLabel == "")
             UiLabel = $"Grab {gameObject.name}";
         _meshCollider = GetComponent<MeshCollider>();
+    }
+
+    [Serializable]
+    public class SkeletonStats
+    {
+        [SerializeField]
+        private float _maxHp = 10f;
+
+        private float _hp = 10f;
+
+        public void ResetHp() => _hp = _maxHp;
+
+        public void Damage(float damage) => _hp -= damage;
+        
+        public bool isAlive => _hp > 0;
     }
 }

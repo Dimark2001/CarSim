@@ -144,7 +144,7 @@ public class CarMovement : MonoBehaviour
 
     #endregion
 
-    private void Start()
+    public void Initialize()
     {
         _carRigidbody.centerOfMass = _bodyMassCenter;
         _fLWheelFriction = new WheelFrictionCurve
@@ -231,6 +231,8 @@ public class CarMovement : MonoBehaviour
                 _rrwTireSkid.emitting = false;
             }
         }
+        
+        CrashSetting();
     }
 
     public void Move()
@@ -278,10 +280,14 @@ public class CarMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!G.IsInitialized)
+            return;
         if (MoveDirection.x == 0 && _steeringAxis != 0f)
         {
             ResetSteeringAngle();
         }
+        
+        CrashCar();
     }
 
     public void DecelerateCar()
@@ -697,4 +703,34 @@ public class CarMovement : MonoBehaviour
             }
         }
     }
+
+    #region Crash
+    
+    private float _crashThreshold = 0.25f;
+    private float _currentPosDelta = 0f;
+    private float _lastDelta = 0f;
+    private Vector3 _lastPosition = Vector3.zero;
+    
+    private void CrashSetting()
+    {
+        _lastPosition = transform.position;
+    }
+    
+    private void CrashCar()
+    {
+        _currentPosDelta = (transform.position - _lastPosition).magnitude;
+        var absDelta = Mathf.Abs(_currentPosDelta - _lastDelta);
+        if (absDelta > 0.01f)
+        {
+            Debug.Log(absDelta);
+        }
+        if (absDelta > _crashThreshold)
+        {
+            G.Get<CarService>().Facade.Skeleton.CrashAll();
+        }
+        _lastPosition = transform.position;
+        _lastDelta = _currentPosDelta;
+    }
+
+    #endregion
 }

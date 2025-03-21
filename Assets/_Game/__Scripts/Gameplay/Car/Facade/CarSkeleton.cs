@@ -82,7 +82,19 @@ public class CarSkeleton : MonoBehaviour
     {
         _rb.WakeUp();
     }
-
+    
+    public void CrashAll()
+    {
+        if (_sComponents != null && _sComponents.Count > 0)
+        {
+            for (var i = _sComponents.Count - 1; i >= 0; i--)
+            {
+                var c = _sComponents[i];
+                c.DownState();
+            }
+        }
+    }
+    
     [Serializable]
     private class SkeletonComponent
     {

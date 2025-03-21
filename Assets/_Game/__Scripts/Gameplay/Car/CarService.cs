@@ -14,6 +14,7 @@ public class CarService : GSingleton
     public override async UniTask AfterInitialize()
     {
         Facade.Input.Initialize();
+        Facade.Movement.Initialize();
         Disable();
         await UniTask.CompletedTask;
     }

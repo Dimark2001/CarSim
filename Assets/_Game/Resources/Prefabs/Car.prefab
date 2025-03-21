@@ -87,9 +87,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: Grab Wheel P P
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 4404088889480565733}
   _sphereRadius: 0.5
-  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 4379152949551804333}
   <Visual>k__BackingField: {fileID: 3309158895735202617}
   <Bracing>k__BackingField: {fileID: 2856983822139333033}
@@ -402,9 +403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: Grab Wheel P Z
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 8250631807094433717}
   _sphereRadius: 0.5
-  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 995552580542903760}
   <Visual>k__BackingField: {fileID: 212149211876137749}
   <Bracing>k__BackingField: {fileID: 2093756059286648001}
@@ -742,9 +744,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: Grab Wheel L P
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 20861955512587774}
   _sphereRadius: 0.5
-  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 5080163321142159737}
   <Visual>k__BackingField: {fileID: 7399669403935763126}
   <Bracing>k__BackingField: {fileID: 1530623606080140871}
@@ -892,9 +895,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: Grab Wheel L Z
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 1576593615305860819}
   _sphereRadius: 0.5
-  _maxHp: 20
   <WheelCollider>k__BackingField: {fileID: 765160620635920387}
   <Visual>k__BackingField: {fileID: 5322258939906850534}
   <Bracing>k__BackingField: {fileID: 5055549273094112722}
@@ -1840,20 +1844,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sComponents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1205566573888017745}
+  - {fileID: 1956957188824305554}
+  - {fileID: 6519528878372518331}
+  - {fileID: 1668126997192501888}
+  - {fileID: 8769200931406175717}
+  - {fileID: 1511600274166710661}
+  - {fileID: 2513353237305350847}
+  - {fileID: 4491975671211200884}
+  - {fileID: 7294709212988719451}
+  - {fileID: 6344332809022149975}
+  - {fileID: 948338769796133971}
+  - {fileID: 7599542977728886926}
+  - {fileID: 4494024386441994154}
+  - {fileID: 3240260295009035978}
   _bracingList:
   - {fileID: 1530623606080140871}
   - {fileID: 5055549273094112722}
@@ -2531,9 +2535,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0437\u0430\u0434\u043D\u0438\u0439
     \u0431\u0430\u043C\u043F\u0435\u0440"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 4252812423223892801}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!4 &3309158895735202617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2806157092976061121, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2580,9 +2585,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043A\u0430\u043F\u043E\u0442"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 2457274512928925609}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!1 &4483673125482272781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3829242252011442677, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2625,9 +2631,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
     \u041F\u0417"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 7151535380861949866}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!1 &5067413270867637547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3652956976038314797, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2669,9 +2676,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0431\u0430\u0433\u0430\u0436\u043D\u0438\u043A "
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 151003121260478719}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!4 &5322258939906850534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4810250358726227742, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2719,9 +2727,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
     \u041F\u041F"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 2933439483323627377}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!1 &6090666791146739167 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6889208171144469543, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2764,9 +2773,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
     \u041B\u041F"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 4824079833906777023}
   _sphereRadius: 0.7
-  _maxHp: 10
 --- !u!1 &7112517792878365977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1609550581118008095, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2809,9 +2819,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u043D\u0438\u0439
     \u0431\u0430\u043C\u043F\u0435\u0440"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 389872260499502112}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!4 &7399669403935763126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1320135887275433138, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2859,9 +2870,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u043F\u0435\u0440\u0435\u0434\u043D\u0435\u0435
     \u0441\u0442\u0435\u043A\u043B\u043E"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 3989302598319207038}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!1 &8561333201738048096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -156798783135175784, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2904,9 +2916,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0437\u0430\u0434\u043D\u0435\u0435
     \u0441\u0442\u0435\u043A\u043B\u043E"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 9198964967855151815}
   _sphereRadius: 0.5
-  _maxHp: 10
 --- !u!1 &9030200514120332019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8524382806215244555, guid: c7371fe18c9ab0142b49aee993ad201f, type: 3}
@@ -2949,9 +2962,10 @@ MonoBehaviour:
   <UiLabel>k__BackingField: "\u0412\u0437\u044F\u0442\u044C \u0434\u0432\u0435\u0440\u044C
     \u041B\u0417"
   <IsInteractionBlocked>k__BackingField: 0
+  <Stats>k__BackingField:
+    _maxHp: 10
   _meshCollider: {fileID: 7814443974825175373}
   _sphereRadius: 0.7
-  _maxHp: 10
 --- !u!1001 &924370079991195608
 PrefabInstance:
   m_ObjectHideFlags: 0

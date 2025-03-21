@@ -18,8 +18,7 @@ public class SkeletonInteract : BaseInteract
     protected Transform HoldingParent;
     protected CarService CarService;
     protected SCState ScState = SCState.Car;
-
-
+    
     protected override void Start()
     {
         HoldingParent = G.Get<PlayerService>().Player.Interaction.HoldingParentTransform;
@@ -102,7 +101,7 @@ public class SkeletonInteract : BaseInteract
         Rb.useGravity = true;
     }
 
-    protected virtual void DownState()
+    public virtual void DownState()
     {
         if (ScState == SCState.Car)
         {

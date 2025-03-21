@@ -47,7 +47,7 @@ public class WheelInteract : SkeletonInteract
         WheelCollider.enabled = true;
     }
 
-    protected override void DownState()
+    public override void DownState()
     {
         if (ScState == SCState.Car)
         {

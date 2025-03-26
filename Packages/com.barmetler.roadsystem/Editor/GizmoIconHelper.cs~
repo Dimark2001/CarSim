@@ -1,0 +1,42 @@
+﻿#if UNITY_EDITOR
+using UnityEditor;
+using UnityEngine;
+using System.Reflection;
+
+namespace Barmetler.RoadSystem
+{
+    public static class GizmoIconHelper
+    {
+        private static float? _cachedIconSize;
+
+        public static float Get3DIconSize()
+        {
+            if (_cachedIconSize.HasValue)
+                return _cachedIconSize.Value;
+
+            var assembly = typeof(EditorWindow).Assembly;
+            var gizmoSettingsType = assembly.GetType("UnityEditor.GizmoSettings");
+
+            if (gizmoSettingsType == null)
+            {
+                Debug.LogWarning("GizmoSettings type not found. Defaulting to 1.0f.");
+                return 1.0f;
+            }
+
+            var iconSizeProperty = gizmoSettingsType.GetProperty(
+                "iconSize",
+                BindingFlags.Static | BindingFlags.NonPublic
+            );
+
+            if (iconSizeProperty == null)
+            {
+                Debug.LogWarning("'iconSize' property not found. Defaulting to 1.0f.");
+                return 1.0f;
+            }
+
+            _cachedIconSize = (float)iconSizeProperty.GetValue(null);
+            return _cachedIconSize.Value;
+        }
+    }
+}
+#endif

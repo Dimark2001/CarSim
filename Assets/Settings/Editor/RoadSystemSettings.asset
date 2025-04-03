@@ -22,4 +22,4 @@ MonoBehaviour:
   drawNavigatorDebug: 0
   drawNavigatorDebugPoints: 0
   autoCalculateNavigator: 0
-  gizmosSize: 0.15
+  gizmosSize: 1.357
